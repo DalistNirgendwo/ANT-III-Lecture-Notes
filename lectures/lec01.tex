@@ -1,0 +1,85 @@
+\lecture{24.10.2023}
+
+\begin{exmp}[Pell equation]
+	Let \( d > 1 \) be an integer, which is not a square, and find all integer solutions to
+	\begin{equation}\label{eq:pell_equation}
+		x^2 - dy^2 = 1.
+	\end{equation}
+	Write \( \Z[\sqrt{d}] = \{a+\sqrt{d}b \mid a,b \in \Z\} \subseteq \Q[\sqrt{d}] \) with its natural ring structure.
+	If \( (x,y) \in \Z^2 \) is a solution to \eqref{eq:pell_equation}, then
+	\[ (x+\sqrt{d}y)(x-\sqrt{d}y) = x^2-dy^2 = 1 \]
+	and for every \( k \in \N \)
+	\[ (x+\sqrt{d}y)^k(x-\sqrt{d}y)^k = x_k^2-dy_k^2 = 1, \]
+	with \( x_k,y_k \in \Z \).
+	I.e. if \( (x,y) \neq (\pm 1, 0) \) we can generate new solutions as above.
+	Define the norm map \( N: \Z[\sqrt{d}] \to \Z,\ a+\sqrt{d}b \mapsto a^2 - db^2 \).
+	Then solutions to \eqref{eq:pell_equation} can be described as units \( x+\sqrt{d}y \in \Z[\sqrt{d}]^* \) in the ring \( \Z[\sqrt{d}] \) with \( N(x+\sqrt{d}y) = 1 \).
+\end{exmp}
+
+\begin{exmp}[Gaussian integers]
+	The question is to find all primes \( p \) which can be written as a sum of two integer squares
+	\[ p=a^2+b^2. \]
+	I.e. we ask for primes \( p \) which factor as \( p = (a+ib)(a-ib) \) in the ring \( \Z[i] \).
+\end{exmp}
+
+
+\section[Number fields and number rings]{Number fields and number rings, first definitions and examples}
+
+\begin{defn*}[Number field]\index{Number field}
+	A \emph{number field} is a finite field extension of \( \Q \).
+\end{defn*}
+
+\begin{exmp*}
+	\begin{enumerate}[label={\alph*})]
+		\item For \( d \in \Z \), where \( d \) is not a square, the fields \( \Q[\sqrt{d}] = \Q[x] / (x^2-d) \) are number fields (with degree 2 over \( \Q \)).
+			We call \( \Q[\sqrt{d}] \) a \emph{real quadratic field} if \( d > 0 \) and an \emph{imaginary quadratic field} if \( d < 0 \).
+		\item \( \Q[\sqrt{d_1}, \sqrt{d_2}] \) are number fields for \( d_1, d_2 \in \Z \), usually called \emph{biquadratic fields}.
+		\item Let \( m \in \N \) and \( \omega = e^\frac{2\pi i}{m} \).
+			Then \( \Q[\omega] \) is a number field, called the \emph{\( m \)-th cyclotomic field}.
+		\item[?)] What could be an analogue of the integers in a general number field?
+			\[ Z \subset \Q \qquad ? \subset \Q[\sqrt{d}] \qquad ? \subset \Fbb \]
+	\end{enumerate}
+\end{exmp*}
+
+\begin{defn*}[Algebraic integer]\index{Algebraic integer}
+	A complex number \( \alpha \in \C \) is called an \emph{algebraic integer}, if there is a monic polynomial \( P(x) \in \Z[x] \) with \( P(\alpha) = 0 \).
+\end{defn*}
+
+\begin{exmp*}
+	\begin{itemize}
+		\item Every \( n \in \Z \) is an algebraic integer.
+		\item \( \sqrt{d} \) for \( d \in \Z \) is an algebraic integer (take \( P(x) = x^2-d \)).
+		\item \( e^\frac{2\pi i}{m} \) is an algebraic integer for every \( m \in \N \) (take \( P(x) = x^m - 1 \)).
+	\end{itemize}
+\end{exmp*}
+
+\begin{thmn}\label{thm:irred_poly}
+	Let \( \alpha \) be an algebraic integer and \( f(x) \in \Z[x] \) a monic polynomial with \( f(x)=0 \).
+	If \( f(x) \) is of minimal degree with these properties, then \( f \) is irreducible.
+\end{thmn}
+
+\begin{rem*}
+	\Cref{thm:irred_poly} shows, that the minimal polynomial of an algebraic integer over \( \Q \) has coefficients in \( \Z \).
+\end{rem*}
+
+\begin{lem}
+	Let \( f \in \Z[x] \) be a monic polynomial and \( g, k \in \Q[x] \) monic polynomials with \( f = gh \). Then, \( g,k \in \Z[x] \).
+\end{lem}
+
+\begin{cor}
+	If \( \alpha \in \Q \) is an algebraic integer, then \( \alpha \in \Z \).
+\end{cor}
+
+\begin{thmn}[Characterization of algebraic integers]
+	Let \( \alpha \in \C \). Then the following statements are equivalent:
+	\begin{enumerate}[label=({\roman*})]
+		\item \( \alpha \) is an algebraic integer.
+		\item \( \Z[\alpha] \) is a finitely generated group (under addition).
+		\item There exists a subring \( R \subset \C \) with \( \alpha \in R \) and such that \( (R, +) \) is a finitely generated group.
+		\item There is a non-trivial finitely generated subgroup \( (A, +) \) of \( \C \), such that \( \alpha A \subseteq A \).
+	\end{enumerate}
+\end{thmn}
+
+\begin{cor}
+	The set of algebraic integers in \( \C \) is a ring.
+\end{cor}

@@ -1,0 +1,78 @@
+\documentclass{dnscript}
+%=======================================================================================================%
+%                                                                                                       %
+% Dieses Skript benötigt mein Package dntex, erhältlich unter https://github.com/DalistNirgendwo/dntex  %
+%                                                                                                       %
+%=======================================================================================================%
+\usepackage{lecturestyle}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\graphicspath{ {./images/} }
+
+%\usepackage{showframe}
+
+\makeindex[title=Definitions,intoc]
+% \renewcommand{\lecture}[1]{%
+% 	\setcounter{video}{0}
+% 	\stepcounter{lecture}
+% 	\marginnote{\normalfont Vorlesung \thelecture, #1}
+% 	\addxcontentsline{listoflectures}{section}[]{Lecture \thelecture{} from #1}
+% }
+
+%\renewcommand{\thechapter}{\S \arabic{chapter}}
+%\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thethm}{\arabic{chapter}.\arabic{thm}}
+
+\hypersetup{
+	pdftitle={Lecture notes Analytic Number Theory III}
+}
+
+
+
+%\includeonly{./lectures/cpt13}
+
+\usetikzlibrary{patterns}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{pgfplots}
+
+\begin{document}
+	\frontmatter
+	\maketitle
+	\pagestyle{plain}
+	\begingroup
+	\let\clearpage\relax
+	\tableofcontents
+	\listoflectures{}
+	\endgroup
+	\newpage
+	
+	This script is not a substitute for Prof. Schindler's lecture notes and will not be reviewed by her again.
+	Basically, these are just my personal notes, so I do not guarantee correctness or completeness and I might add further examples and notes if necessary.
+	In general I will not include proofs (because this is no fun in \LaTeX{}).
+	
+	If you have any corrections, you can write to me at \href{https://studip-ecampus.uni-goettingen.de/dispatch.php/profile?username=a.sennewald}{Stud.IP} or make a pull request directly at the \href{LINK TO REPO}{GitHub repository} (which is much more convenient for me than the way via Stud.IP).\\\\
+	glhf,\\
+	Alex
+	
+	\vspace{\fill}
+%	\begin{quote}
+%		"Die Zahlentheorie ist nützlich, weil man mit ihr promovieren kann."
+%	\end{quote}\hspace{\fill} --Edmund Landau
+	\vspace{\fill}
+	
+	
+	\mainmatter{}
+	\pagestyle{scrheadings}
+	
+	\include{./lectures/cpt01}
+	
+	
+	
+	
+	
+	\pagestyle{plain}
+	%	\appendix
+	%	\renewcommand{\appendixtocname}{Anhang}
+	%	\addappheadtotoc
+	\printindex
+\end{document}
