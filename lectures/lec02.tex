@@ -1,0 +1,119 @@
+\lecture{27.10.2023}
+
+\begin{defn*}
+	Let \( K \) be a number field.
+	Then we write \( \Ocal_K \) for the set of algebraic integers contained in \( K \) and we call \( \Ocal_K \) the ring of integers of \( K \).
+\end{defn*}
+
+\begin{exmp*}
+	\( \Ocal_\Q = \Z \)
+\end{exmp*}
+
+\begin{prop}
+	Let \( d \in \Z \) be a squarefree integer.
+	\begin{itemize}
+		\item If \( d \equiv 2,3 \bmod 4 \) then \( \Ocal_{\Q[\sqrt{d}]} = \set{a + \sqrt{d}b}{a,b \in \Z} \).
+		\item If \( d \equiv 1 \bmod 4 \), then \( \Ocal_{\Q[\sqrt{d}]} = \set{\frac{a+\sqrt{d}b}{2}}{a \equiv b \bmod 2} \).
+	\end{itemize}
+\end{prop}
+
+
+\section{Embeddings, Norm and Trace}
+
+Recall: Let \( L/K \) be a finite field extension.
+If \( char K = 0 \), then \( L/K \) is separable.
+Let \( \Kbar \) be an algebraic closure of \( K \). If \( L/K \) is seperable, them \( [L:K] = \#\Hom_K (L, \Kbar) \).
+
+\begin{thm*}
+	Let \( L/K \) be a finite separable field extension.
+	Then there exists an element \( \alpha \in L \) such that \( L = K(\alpha) \).
+	In particular, for number fields \( Q \subseteq K \subseteq L \) we obtain the following:
+	\begin{itemize}
+		\item There exists \( \alpha \in L \) such that \( L = K(\alpha) \)
+		\item If there is an embedding \( \hat{\iota}: K \hookrightarrow \C \), then there exist \( [L:K] \) embeddings \( L \hookrightarrow \C \), which extend \( \hat{\iota} \). If \( g(x) \) is a minimal polynomial of \( \alpha \) over \( K \) then the embeddings are given by \( \sigma_i: \alpha \mapsto \beta_i \), where \( \beta_1, \dotsc, \beta_{[L:K]} \) are the \( [L:K] \) distinct conjugates of \( \alpha \).
+	\end{itemize}
+\end{thm*}
+
+\begin{exmp*}
+	\begin{enumerate}
+		\item Let \( d \in \Z \) be not a square.
+			Then there are exactly two embeddings of \( \Q[\sqrt{d}] \) into \( \C \), namely \( \sigma_1: a+\sqrt{d}b \mapsto a + \sqrt{d}b \) and \( \sigma_2: a+\sqrt{d}b \mapsto a - \sqrt{d}b \).
+		\item We have \( [\Q[\sqrt[3]{2}:\Q]] = 3 \) and the three embeddings are given by 
+			\[ \sigma_1(\sqrt[3]{2}) = \sqrt[3]{2},\ \sigma_2(\sqrt[3]{2}) = e^\frac{2\pi i}{3}\sqrt[3]{2},\ \sigma_3(\sqrt[3]{2}) = e^\frac{4\pi i}{3}\sqrt[3]{2}. \]
+			Note that \( \sigma_1(\Q[\sqrt[3]{2}]) \subseteq \R \), whereas \( \sigma_2 \) and \( \sigma_3 \) are "complex embeddings".
+			\( \Q[\sqrt[3]{2}] / \Q \) is not a normal extension.
+	\end{enumerate}
+\end{exmp*}
+
+\begin{defn*}[Trace and norm]\index{Trace}\index{Norm}
+	Let \( K \) be a field and \( V \) an \( n \)-dimensional \( K \)-vector space.
+	For \( \varphi: V \to V \) a \( K \)-endomorphism, we define the characteristic polynomial \[ \chi_\varphi(x) = \det(xI_n - \varphi) = \sum_{i=0}^{n} c_i x^{n-i} \]
+	for some \( c_0, \dotsc, c_n \in K \).
+	We define the determinant and trace of \( \varphi \) by \( \det \varphi = (-1)^n c_n \) and \( \trace\varphi = -c_1 \)
+\end{defn*}
+
+Note that if \( \varphi,\psi: V \to V \) are both \( K \)-endomorphisms of \( V \), then \( \det(\varphi \circ \psi) = \det(\varphi)\det(\psi) \) and \( \trace(a\varphi + b\psi) = a \trace(\varphi) + b \trace(\psi)\ \foralll a,b \in K \).
+
+\begin{defn*}
+	Let \( \Q \subseteq K \subseteq L \) be number fields and \( \alpha \in L \).
+	We write \( \varphi_\alpha: L \to L,\ x \mapsto \alpha x \) and define the (relative) norm and trace of \( \alpha \) by
+	\[ N_{L/K}(\alpha) = \det \varphi_\alpha,\quad \Tr_{L/K}(\alpha) = \trace(\varphi_\alpha). \]
+\end{defn*}
+
+\begin{rem*}
+	The map \( N_{L/K}: L^* \to K^* \) is a grouphomomorphism as \( N_{L/K}(\alpha\beta) = N_{L/K}(\alpha) N_{L/K}(\beta)\ \foralll \alpha,\beta \in L\setminus \{0\} \).
+	Similarly, \( \Tr_{L/K}: L \to K \) is a \( K \)-linear map, as
+	\[ \Tr_{L/K}(u\alpha + v\beta) = u\Tr_{L/K}(\alpha) + v\Tr_{L/K}(\beta)\ \foralll u,v \in K,\ \alpha,\beta \in L. \]
+\end{rem*}
+
+\begin{exmp*}
+	Let \( K = \Q,\ L = \Q(i) \) and \( \alpha = a+ib \in \Q(i) \).
+	Then \( \varphi_\alpha \) can be represented with respect to the basis \( 1,\ i \) by
+	\[ \varphi_\alpha = \begin{bmatrix}
+		a & -b \\ b & a
+	\end{bmatrix} \]
+	and hence
+	\[ N_{L/\Q}(a+ib) = a^2+b^2,\quad \Tr_{L/\Q}(a+ib) = 2a. \]
+\end{exmp*}
+
+\begin{lem}
+	Let \( L/K \) is an extension of number fields with \( [L:K] = n \). For \( a \in K \) we have
+	\[ N_{L/K}(a) = a^n,\quad \Tr_{L/K} = na. \]
+\end{lem}
+
+\begin{lem}
+	Let \( L/K \) be an extension of number fields with \( L=K(\alpha) \) and \( [L:K]=n \).
+	Let \( f(x) = x^n + c_1x^{n-1} + \dots + c_n \) be the minimal polynomial of \( \alpha \) over \( K \).
+	Then
+	\[ N_{L/K}(\alpha) = (-1)^n c_n,\quad \Tr_{L/K}(\alpha) = -c_1. \]
+\end{lem}
+
+\begin{lem}
+	Let \( L/K \) be a number field extension, \( \alpha \in L \), \( [L:K(\alpha)] = r \).
+	Then we have
+	\[ N_{L/K}(\alpha) = \left( N_{K(\alpha/K)}(\alpha) \right)^r,\quad \Tr_{L/K}(\alpha) = r \Tr_{K(\alpha)/K}(\alpha). \]
+\end{lem}
+
+\begin{cor}
+	Let \( L/K \) be number fields and \( \alpha \in \Ocal_L \).
+	Then \( N_{L/K}(\alpha), \Tr_{L/K}(\alpha) \in \Ocal_K \).
+	In particular \( N_{L/\Q}(\alpha), \Tr_{L/\Q} \in \Z \).
+\end{cor}
+
+\begin{thmn}
+	Let \( L/K \) be number fields, \( [L:K] = n \) and \( \sigma_1, \dotsc, \sigma_n: L \hookrightarrow \C \) be the \( n \) distinct \( K \)-linear embeddings of \( L \) into \( \C \).
+	Then, for \( \alpha \in L \), we have
+	\[ N_{L/K}(\alpha) = \prod_{i=1}^{n} \sigma_i(\alpha),\quad \Tr_{L/K}(\alpha) = \sum_{i=1}^{n} \sigma_i(\alpha). \]
+\end{thmn}
+
+\begin{cor}
+	Let \( L/K \) be a Galois extension of number fields.
+	Then, for \( \alpha \in L \) and \( \sigma \in \Gal(L/K) \), we have
+	\[ N_{L/K}(\sigma(\alpha)) = N_{L/K}(\alpha),\quad \Tr_{L/K}(\sigma(\alpha)) = \Tr_{L/K}(\alpha). \]
+\end{cor}
+
+\begin{thmn}
+	Let \( K \subseteq L \subseteq M \) be a tower of number fields and \( \alpha \in M \).
+	Then
+	\[ N_{M/K} = N_{L/K}(N_{M/L}(\alpha)),\quad \Tr_{M/K}(\alpha) = \Tr_{L/K}(\Tr_{M/L}(\alpha)). \]
+\end{thmn}
