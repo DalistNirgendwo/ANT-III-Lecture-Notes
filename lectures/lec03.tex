@@ -1,0 +1,96 @@
+\lecture{03.11.2023}
+
+\subsection*{An application of the norm map}
+
+Given a number field \( K \) with ring of integers \( \Ocal_K \), how can we find \( \Ocal_K^* \), i.e. the units in \( \Ocal_K \)?
+\begin{itemize}
+	\item If \( \alpha \in \Ocal_K^* \), \( \alpha^{-1} \in \Ocal_K \) and \( 1 = N_{K/\Q}(\alpha \alpha^{-1}) = N_{K/\Q}(\alpha) \cdot N_{K/\Q}(\alpha^{-1}) \).
+		By \Cref{cor:10}, \( N_{K/\Q}(\alpha),\ N_{K/\Q}(\alpha^{-1}) \in \Z \implies N_{K/\Q}(\alpha) = \pm 1 \).
+	\item If \( \alpha \in \Ocal_K \) with \( N_{K/\Q}(\alpha) = \pm 1 \), then \( \alpha \in \Ocal_K^* \).
+\end{itemize}
+
+\begin{exmp*}
+	Let \( d \in \Z \), \( d \) squarefree.
+	Then, for \( a, b \in \Q \), \( N_{\Q[\sqrt{d}]/\Q}(a + \sqrt{d}b) = (a+b\sqrt{d}) (a - b\sqrt{d}) = a^2 - db^2 \).
+	For \( d \equiv 2,3 \bmod 4 \), we find that
+	\[ \Ocal_{\Q[\sqrt{d}]} = \set{a+b\sqrt{d}}{a,b \in \Z,\ a^2-db^2 = \pm 1}. \]
+\end{exmp*}
+
+
+\subsection*{The trace as a bilinear form}
+
+Let \( L/K \) be number fields.
+Then \( \Tr_{L/K} \) induces a bilinear form
+\begin{equation}\label{eq:trace_binilear}
+	\Tr_{L/K}: L \times L \to K,\ (x,y) \mapsto \Tr_{L/K}(x \cdot y).
+\end{equation}
+Write \( L^* \) for the dual vector space of \( L \), i.e. the set of all \( K \)-linear vector space homomorphisms.
+
+\begin{thmn}
+	The bilinear form \eqref{eq:trace_binilear} induces an isomorphism of \( K \)-vector spaces
+	\[ \psi: L \to L^*,\ x \to \Tr_{L/K}(x,\cdot). \]
+\end{thmn}
+
+\begin{cor}
+	Let \( L/K \) be number fields and \( (v_1, \dotsc, v_n) \) a \( K \)-basis with \( n = [L:K] \).
+	Then there exists a unique \( K \)-basis \( (w_1, \dotsc, w_n) \) of \( L \), such that \( \Tr_{L/K}(v_iw_j) = \delta_{ij},\ 1 \leq i,j, \leq n \).
+\end{cor}
+
+
+\section{Discriminant}
+
+Let \( K/\Q \) be a number field of degree \( n = [K:\Q] \) and \( \sigma_1, \dotsc, \sigma_n: K \to \C \) its embeddings.
+
+\begin{defn*}[Discriminant]\index{Discriminant}
+	For \( \alpha_1, \dotsc, \alpha_n \in K \), we define the \emph{discriminant} as
+	\[ \disc(\alpha_1, \dotsc, \alpha_n) = \det\big( (\sigma_i(\alpha_j))_{1 \leq i,j \leq n} \big)^2. \]
+\end{defn*}
+
+\begin{thmn}
+	Let \( \alpha_1, \dotsc, \alpha_n \in K \).
+	Then \( \alpha_1, \dotsc, \alpha_n \) are \( \Q \)-linearly independent if and only if \( \disc(\alpha_1, \dotsc, \alpha_n) \neq 0 \).
+\end{thmn}
+
+\begin{lem}
+	Let \( \alpha_1, \dotsc, \alpha_n \in K \). Then
+	\[ \disc(\alpha_1, \dotsc, \alpha_n) = \det \big( \Tr_{K/\Q} (\alpha_i \alpha_j) \big)_{1 \leq i,j \leq n}. \]
+\end{lem}
+
+\begin{cor}
+	Let \( \alpha_1, \dotsc, \alpha_n \in K \).
+	Then \( \disc(\alpha_1, \dotsc, \alpha_n) \in \Q \).
+	If moreover \( \alpha_1, \dotsc, \alpha_n \in \Ocal_K \), then \( \disc(\alpha_1, \dotsc, \alpha_n) \in \Z \).
+\end{cor}
+
+\begin{thmn}
+	Let \( \alpha \) be algebraic over \( \Q \) with \( \big[ \Q[\alpha] : \Q \big] = n \), and \( \alpha_1, \dotsc, \alpha_n \) the \( n \) different conjugates of \( \alpha \).
+	Then
+	\[ \disc \big( 1, \alpha, \dotsc, \alpha^{n-1} \big) = \prod_{1 \leq i,j \leq n} (a_i - a_j)^2. \]
+	If moreover \( f(x) \) is the minimal polynomial of \( \alpha \) over \( \Q \), then
+	\[ \disc \big(1, \alpha, \dotsc, \alpha^{n-1} \big) = (-1)^\frac{n(n-1)}{2} N_{\Q[\alpha]/\Q} \big( (f'(\alpha) \big). \]
+\end{thmn}
+
+\begin{frage*}
+	Let \( K \) be a number field with ring of integers \( \Ocal_K \) and of degree \( n = [K:\Q] \).
+	Then \( K \) is an \( n \)-dimensional \( \Q \)-vector space.
+	Hpw can we describe the structure of the group \( (\Ocal_K, +) \)?
+\end{frage*}
+
+\begin{exmp*}
+	For \( d \in \Z \) squarefree and \( K = \Q \big[\sqrt{d}\big] \), the ring of integers \( \Ocal_K \) is a free abelian group of rank \( 2 \), where a \( \Z \)-basis is given by \( (1,\ \omega) \), with
+	\[ \omega = \begin{cases}
+		\sqrt{d} &d \equiv 2,3 \bmod 4,\\
+		\frac{1 + \sqrt{d}}{2} &d \equiv 1 \bmod 4.
+	\end{cases} \]
+\end{exmp*}
+
+\begin{thmn}\label{thm:20}
+	Let \( K/\Q \) be a number field of degree \( n = [K:\Q] \).
+	Then \( \Ocal_K \) is a free abelian group of rank \( n \), i.e. there exists \( \alpha_1, \dotsc, \alpha_n \in \Ocal_K \), such that every \( \beta \in \Ocal_K \) can be uniquely written in the form
+	\[ \beta = m_1 \alpha_1 + \dots + m_n \alpha_n \]
+	with \( m_1, \dotsc, m_n \in \Z \).
+\end{thmn}
+
+\begin{rem*}
+	In the notation of \Cref{thm:20}, we call \( (\alpha_1, \dotsc, \alpha_n) \) and integral basis of \( \Ocal_K \) (over \( \Z \)).
+\end{rem*}
