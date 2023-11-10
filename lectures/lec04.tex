@@ -63,7 +63,7 @@
 In the following let \( m \in \N \) and write \( \omega = e^\frac{2\pi i}{m} \).
 
 \begin{thmn}
-	The extension \( \Q[\omega] \) over \( \Q \) is Galois with degree equal to \( \varphi(m) \).
+	The extension \( \Q[\omega] \) over \( \Q \) is Galois with degree equal to \( \varphi(m) \), where \( \varphi \) is Euler's totient function.
 	Moreover, the Galois group is isomorphic to \( (\Z/m\Z)^* = \set{k \in \Z/m\Z}{\gcd(k,m)=1} \).
 \end{thmn}
 
@@ -83,9 +83,13 @@ For \( k \in (\Z/m\Z)^* \) the corresponding automorphism is given by \( \omega 
 \end{cor}
 
 \begin{thmn}
-	Let \( m=p^r \) for some prime \( p \).
-	Then \( \Ocal_{Q[m]} = \Z[\omega] \).
+	Let \( m=p^r \) for some prime \( p \) and \( \omega = e^\frac{2\pi i}{m} \).
+	Then \( \Ocal_{Q[\omega]} = \Z[\omega] \).
 \end{thmn}
+
+\begin{rem*}
+More generally, \( Z[\omega] = \Ocal_{Q[\omega]} \) for \emph{every} cyclotomic field.
+\end{rem*}
 
 \begin{notat*}
 	We write \( \disc(\alpha) = \disc(1, \alpha, \dotsc, \alpha^{n-1}) \).

@@ -1,0 +1,63 @@
+Motivation: If \( K \) is a number field with ring of integers \( \Ocal_K \), then we may not have a unique factorisation in \( \Ocal_K \) into irreducible elements (up to units and ordering).
+
+\begin{exmp*}
+	Let \( K = \Q(\sqrt{-5}) \), then \( \Ocal_K = \Z[\sqrt{-5}] \).
+	In \( \Z[\sqrt{-5}] \) we have \( 2 \cdot 3 = 6 = (1+\sqrt{-5})(1-\sqrt{-5}) \), where 2 and 3 are irreducible elements.
+\end{exmp*}
+
+Our next goal is to replace factorisation into irreducible elements by prime \emph{ideal} factorisation.
+Instead of number fields, we consider more generally \emph{Dedekind domains}.
+
+\begin{defn*}[Integrally closed ring]\index{Ring!integrally closed}
+	Let \( R \) be an integral domain and \( K = \set{\frac{a}{b}}{a,b \in R,\ b \neq 0} \) its field on fractions.
+	We call \( R \) \emph{integrally closed}, if every element \( \frac{a}{b} \in K \), which is a zero of a monic polynomial with coefficients in \( R \) is contained in \( R \).
+\end{defn*}
+
+\begin{exmp*}
+	Let \( K \) be a number field with ring of integers \( \Ocal_K \).
+	Then \( \Ocal_K \) is integrally closed.
+	Indeed let \( \alpha \in K \) satisfy \( \alpha^n + b_1\alpha^{n-1} + \dots + b_n = 0 \), with \( b_1, \dotsc, b_n \in \Ocal_K \).
+	Then \( \Z[\alpha, b_1, \dotsc, b_n] \) is finitely generated as an additive group and we have \( \alpha \in \Ocal_K \).
+\end{exmp*}
+
+\begin{defn*}[Noetherian ring]\index{Ring!noetherian}
+	We call a commutative ring \( R \) \emph{noetherian} if every ideal is finitely generated.
+\end{defn*}
+
+\begin{rem*}
+	The following statements about a commutative ring \( R \) are equivalent:
+	\begin{enumerate}
+		\item \( R \) is noetherian.
+		\item Every increasing sequence of ideals is eventually constant, i.e. if \( I_1 \subseteq I_2 \subseteq \dots \), then there is some \( n_0 \in \N \), such that \( I_n = I_{n_0} \) for every \( n > n_0 \).
+		\item Every non-empty set \( S \) of ideals has a maximal element, i.e. there is some \( M \in S \), such that if \( M' \in S \) with \( M \subseteq M' \), then \( M = M' \).
+	\end{enumerate}
+\end{rem*}
+
+\begin{exmp*}
+	Principal ideal domains and polynomial rings \( \Z[x_1, \dotsc, x_n] \) or \( K[x_1, \dotsc, x_n] \) for any field \( K \) are noetherian.
+\end{exmp*}
+
+\begin{defn*}[Dedekind domain]\index{Dedekind domain}
+	A \emph{Dedekind domain} is a noetherian integrally closed domain, in which every non-zero prime ideal is maximal.
+\end{defn*}
+
+\begin{thmn}
+	Let \( K \) be a number field.
+	Then its ring of integers \( \Ocal_K \) is a Dedekind domain.
+\end{thmn}
+
+\begin{exmp*}
+	Coordinate rings of irreducible smooth curves over an algebraically closed field, e.g. \( \C[T] \) is a Dedekind domain.
+\end{exmp*}
+
+\subsection*{First properties of Dedekind domains}
+
+\begin{lem}
+	Let \( R \) be a Dedekind domain, which is not a field and \( 0 \neq I \subseteq R \) an ideal.
+	Then \( I \) contains a product of non-zero prime ideals \( P_1 \cdot \dots \cdot P_k \subseteq I \).
+\end{lem}
+
+\begin{lem}
+	Let \( R \) be a Dedekind domain with field of fractions \( K \) and \( 0 \neq I \subsetneq R \) a ideal.
+	Then there exists \( \alpha \in K \setminus R \) with \( \alpha I \subseteq R \).
+\end{lem}
