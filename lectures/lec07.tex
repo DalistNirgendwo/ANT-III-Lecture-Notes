@@ -1,0 +1,103 @@
+\lecture{21.11.2023}
+
+\begin{rem*}
+	Chinese Remainder Theorem: Let \( R \) be a commutatiove ring with 1 and \( a_1, \dotsc, a_n \) coprime ideals, i.e. \( a_i + a_j = R\ \foralll i \neq j \).
+	Then there is an isomorphism 
+	\[ R/\bigcap_{i=1}^n a_i \to R/a_1 \times \dots \times R/a_n. \]
+\end{rem*}
+
+\begin{thmn}
+	Let \( R \) be a Dedekind domain, \( I \subseteq R \) a non-zero ideal and \( \alpha \in I \setminus \{0\} \).
+	Then there exists \( \beta \in I \) with \( I = (\alpha, \beta) \).
+\end{thmn}
+
+\begin{cor}
+	A Dedekind domain is a unique factorisation domain (UFD) if and only if is is a principal ideal domain (PID).
+\end{cor}
+
+\begin{rem*}
+	In general, a PID is a UFD but the reverse implication does not hold.
+	For example \( \Z[x] \) is a UFD, but not a PID.
+\end{rem*}
+
+\section{Splitting of primes}
+
+Let \( p \) be a (rational) prime number. Then \( (p) \) is a prime ideal in \( \Z \), but the ideal \( (p) = p \Ocal_K \) need not be a prime ideal in \( \Ocal_K \).
+For example, let \( p \equiv 1 \bmod 4 \), then in \( \Z[i] \) we have 
+\begin{equation}\label{eq:imaginary_pif}
+	(p) = (a+ib)(a-ib),
+\end{equation}
+where \( a^2+b^2 = p \) with \( a,b \in \Z \).
+Note that \( N_{\Q[i]/\Q} (a+ib) = p \) and hence \( a+ib \) is a prime element in the PID \( \Z[i] \), and \eqref{eq:imaginary_pif} is the prime ideal factorisation of \( (p) \).
+Moreover, \( a+ib \) and \( a-ib \) do not differ by multiplication with one of the units \( \pm 1, \pm i \), and hence
+\[ P_1 = (a+ib) \neq (a-ib) = P_2 \]
+in \( \Z[i] \).
+The ideal \( (2) \) splits in \( \Z[i] \) as \( 2 = (1+i)^2 \), where \( (1+i) \) is a prime ideal.
+If \( p \equiv 3 \bmod 4 \) is a rational prime, then \( (p) \) remains a prime ideal in \( \Z[i] \). (check!)
+
+\begin{frage*}
+	More generally, let \( K \subseteq L \) be number fields with rings of integers \( \Ocal_K, \Ocal_L \).
+	Given a non-zero prime ideal \( P \) in \( \Ocal_K \), how does \( P \Ocal_L \) split into prime ideals in \( \Ocal_L \)?
+\end{frage*}
+
+\begin{notat*}
+	In the following, we keep the notation \( K \subseteq L,\ \Ocal_K \subseteq \Ocal_L \) as above.
+\end{notat*}
+
+\begin{defn*}[Primes]
+	We say that \( P \subseteq \Ocal_K \) or \( Q \subseteq \Ocal_L \) is a \emph{prime} if \( P \) or respectively \( Q \) is a non-zero prime ideal in \( \Ocal_K \) or respectively \( \Ocal_L \).
+	Moreover, we say that \( Q \) \emph{lies above} \( P \) or \( P \) \emph{lies under} \( Q \) if \( Q \divides P\Ocal_L \).
+\end{defn*}
+
+\begin{lem}
+	Let \( P \) resp. \( Q \) be primes in \( \Ocal_K \) resp. \( \Ocal_L \).
+	Then \( Q \) lies above \( P \) if and only if one of the following equivalent conditions holds:
+	\begin{enumerate}
+		\item \( P \Ocal_L \subseteq Q \).
+		\item \( P \subseteq Q \).
+		\item \( Q \cap \Ocal_K = P \).
+		\item \( Q \cap K = P \).
+	\end{enumerate}
+\end{lem}
+
+\begin{thmn}
+	Every prime \( Q \) in \( \Ocal_L \) lies above a unique prime \( P \) in \( \Ocal_K \) and for every prime \( P \) in \( \Ocal_K \) there is some prime \( Q \) in \( \Ocal_L \), which lies above \( P \).
+\end{thmn}
+
+\begin{lem}
+	Let \( Q \) be a prime in \( \Ocal_L \) lying above \( P \) in \( \Ocal_K \).
+	Then \( \Ocal_L/Q \) and \( \Ocal_K/P \) are finite fields with \( \Ocal_K/P \hookrightarrow \Ocal_L/Q \).
+\end{lem}
+
+Let \( P \) be a prime in \( \Ocal_K \) and consider in \( \Ocal_L \) the prime ideal factorisation
+\[ P\Ocal_L = \prod_{i=1}^{r} Q_i^{e_i} \]
+with distinct primes \( Q_1, \dotsc, Q_r \).
+
+\begin{defn*}
+	We call
+	\[ e_1 = e(Q_i \mid P) \]
+	the \emph{ramification index} of \( Q_i \) above \( P \) and 
+	\[ f_i = f(Q_i \mid P) = \big[ \Ocal_L/Q_i : \Ocal_K/P \big] \]
+	the \emph{inertia degree} of \( Q_i \) over \( P \).
+	Moreover, we call \( \Ocal_L/Q_i \) and \( \Ocal_K/P \) \emph{residue fields} of \( Q_i \) or respectively \( P \).
+\end{defn*}
+
+\begin{rem*}
+	Let \( K \subseteq L \subseteq M \) be number fields with primes \( P \subseteq Q \subseteq R \).
+	Then
+	\[ e(R \mid P) = e(R \mid Q) e(Q \mid P),\quad f(R \mid P) = f(R \mid Q) f(Q \mid P). \]
+\end{rem*}
+
+\begin{exmp*}
+	Let \( K = \Q,\ L = \Q(i) \).
+	If \( p \) is a rational prime with \( p \equiv 1 \bmod 4 \), then \( (p) = P_1 \cdot P_2 \), \( P_1 = (a+ib),\ P_2 = (a-ib) \) for some \( a,b \in \Z \). We have
+	\[ e\big(P_i \mid (p)\big) = 1, \quad f\big(P_i \mid (p)\big) = 1. \]
+	For a rational prime \( p \equiv 3 \bmod 4 \) we obtain
+	\[ e\big( \underbrace{(p)}_{\subseteq \Z[i]} \mid \underbrace{(p)}_{\subseteq \Z} \big) = 1, \quad f\big((p) \mid (p)\big) = 2. \]
+	For \( p=2 \) note that \( (2) = (1+i)^2 \) and \( \big| \Z[i] \mid (1+i) \big| = 2 \), hence
+	\[ e\big( (1+i) \mid (2)\big) = 2, \quad f\big((1+i) \mid (2)\big) = 1. \]
+	In this example, independent of the rational prime \( p \) we find that
+	\[ \sum_{i=1}^{r} e_if_i = \big[\Q(i) : \Q\big]. \]
+\end{exmp*}
+
+Our goal now is to show the above statement for number fields \( K \subseteq L \).
