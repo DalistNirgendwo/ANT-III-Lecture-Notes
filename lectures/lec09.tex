@@ -1,0 +1,70 @@
+\lecture{28.11.2023}
+\subsection*{Galois extensions}
+
+In the proof of \Cref{thm:2.18} we noted that if \( L/\Q \) is a Galois extension and \( Q \) a prime in \( \Ocal_L \) above \( p \in \Z \), so is the ideal \( \sigma(Q) \) for all \( \sigma \in \Gal(L/\Q) \).
+
+\begin{thmn}\label{thm:2.20}
+	Let \( L/K \) be Galois and \( Q \) a prime in \( \Ocal_L \) lying above the prime \( P \) in \( \Ocal_L \).
+	Then \( \sigma(Q) \) is a prime above \( P \) for every \( \sigma \in \Gal(L/K) \).
+	Moreover, if \( Q' \) is another prime in \( \Ocal_L \) over \( P \), then there exists an automorphism \( \sigma \in \Gal(L/K) \) with \( \sigma(Q) = Q' \).
+\end{thmn}
+
+\begin{exmp*}
+	\( K = \Q,\ L = \Q(i),\ p \in \Z \) a prime with \( p \equiv 1 \bmod 4 \).
+	Write \( p = a^2+b^2 \) with \( a,b \in \Z \).
+	In \( \Z[i] \) we have \( (p) = (a+ib) (a-ib) \).
+\end{exmp*}
+
+\begin{cor}\label{thm:2.21}
+	Let \( L/K \) be a Galois extension, \( P \) a prime in \( \Ocal_K \) and \( Q_1, Q_2 \) primes in \( \Ocal_L \) lying above \( P \).
+	Then
+	\[ e(Q_1 \mid P) = e(Q_2 \mid P),\quad f(Q_1 \mid P) = f(Q_2 \mid P). \]
+\end{cor}
+
+\begin{rem*}
+	In the notation above, we hence obtain
+	\[ P\Ocal_L = (Q_1 \dotsm Q_r)^e\ \text{with } f(Q_i \mid P) = f(Q_j \mid P). \]
+\end{rem*}
+
+\begin{frage*}
+	Let \( L/K \) be any number fields (not necessarily Galois) and \( P \) a prime in \( \Ocal_K \).
+	Find explicitly the factorisation
+	\[ P\Ocal_L = \prod_{i=1}^{r} Q_i^{e_i} \]
+	with \( Q_1, \dotsc, Q_r \) prime.
+\end{frage*}
+
+\begin{exmp*}
+	Let \( m \in \Z\setminus\{1\} \) be odd and square-free and let \( K=\Q \), \( L = \Q(\sqrt{m}) \).
+	Consider an odd prime \( p \in \Z \) with \( p \not\divides m \).
+	By \Cref{thm:2.18}, \( p \) is not ramified in \( \Ocal_K \) as \( \disc(K) \in \{m, 4m\} \).
+	Hence we either have \( p\Ocal_L = Q_i Q_2 \) with distinct primes \( Q_1, Q_2 \) and \( f(Q_i \mid p) = 1 \) for \( i=1, 2 \), \emph{or} \( p\Ocal_L \) is prime with \( f(p\Ocal_L \mid p) = 2 \).
+\end{exmp*}
+
+Let \( Q \) be a prime above \( p \). Consider the polynomial \( g(X) = X^2 - m \).
+Then \( g(X) \) has a zero in \( \Ocal_L \) and hence a zero in \( \Ocal_L/Q \).
+
+\begin{enumerate}
+	\item If \( m \) is not a square modulo \( p \), then \( X^2 - m \) has no zero in \( \Z/p\Z \) and \( \Z/p\Z \hookrightarrow \Ocal_L/Q \) is a non-trivial field extension, i.e. \( f(Q \mid p) = 2 \).
+	\item Let \( a \in \Z \) be a solution to \( a^2-m \equiv 0 \bmod p \).
+		Then in \( \Ocal_L \) we have the factorisation \( (a - \sqrt{m}) (a + \sqrt{m}) \in p\Ocal_L \) and in fact
+		\begin{equation}\label{eq:p_ideal_factorisation}
+			(p, a - \sqrt{m}) (p, a + \sqrt{m}) = p\Ocal_L.
+		\end{equation}
+		As neither of the factors \( (p, a - \sqrt{m}), (p, a + \sqrt{m}) \) contains 1, and \( p\Ocal_L \) factors into a product of at most two primes, we have already found in \eqref{eq:p_ideal_factorisation} the prime ideal factorisation of \( p\Ocal_L \) and 
+		\[ f\big( (p, a \pm \sqrt{m}) \mid p \big) = 1. \]
+\end{enumerate}
+
+More generally, let \( L/K \) be number fields, say of degree \( n = [L:K] \).
+Fix an element \( \alpha \in \Ocal_L \), such that \( L = K(\alpha) \).
+Note, that by \Cref{thm:1.22} the quotient \( \Ocal_L/\Ocal_K[\alpha] \) is finite.
+Let \( g(X) \in \Ocal_K[X] \) be the minimal polynomial of \( \alpha \) over \( K \).
+
+\begin{thmn}\label{thm:2.22}
+	With notation as above, let \( P \) be a prime in \( \Ocal_K \) and factor \( g(X) \) in \( (\Ocal_K/P) [X] \) as
+	\[ g(X) \equiv g_1(X)^{e_1} \dotsm g_r(X)^{e_r} \bmod P[X], \]
+	where \( g_1(X), \dotsc, g_r(X) \in \Ocal_K[X] \) are monic polynomials, pairwise distinct and irreducible in \( (\Ocal_K/P)[X] \).
+	Let \( (p) \in P \cap \Z \) and assume \( p \not\divides \big| \Ocal_L / \Ocal_K[\alpha] \big| \).
+	Then we have the factorisation
+	\[ P\Ocal_L = \prod_{i=1}^{r} Q_i^{i_i}, \]
+	where \( Q_i = (P, g_i(\alpha)) \) is a prime and \( f(Q_i \mid P) = \deg g_i \) for \( 1 \leq i \leq r \).
+\end{thmn}
