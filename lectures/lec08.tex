@@ -1,0 +1,101 @@
+\lecture{24.11.2023}
+
+\subsection*{Norms of ideals}
+
+\begin{defn*}[Norm of an ideal]\index{Ideal!Norm}
+	Let \( K \) be a number field and \( I \subseteq \Ocal_K \) a non-zero ideal.
+	Then we define the \emph{norm} \( N(I) \) of the ideal \( I \) as
+	\[ N(I) \coloneqq \big| \Ocal_K / I \big|. \]
+\end{defn*}
+
+\begin{lem}
+	Let \( I, J \subseteq \Ocal_K \) be non-zero ideals.
+	Then
+	\[ N(IJ) = N(I) N(J). \]
+\end{lem}
+
+\begin{prop}
+	Let \( K \) be a number field of degree \( n = [K:\Q] \) and \( p \in \Z \) a prime with prime ideal factorisation
+	\[ (p) = \prod_{i=1}^r P_i^{e_i} \]
+	in \( \Ocal_K \) and \( f_i = f(P_i \mid p) \) for \( 1 \leq i \leq r \).
+	Then
+	\[ \sum_{i=1}^r e_i f_i = n. \]
+\end{prop}
+
+Next, we will look at general number field extensions \( L \subseteq K \).
+We start with some preparations:
+
+\begin{lem}
+	Let \( 0 \neq B \subseteq A \subsetneq R \) be ideals in a Dedekind domain \( R \).
+	Then there exists \( \alpha \in K = Quot(R) \), such that
+	\[ \alpha B \subseteq R, \, \text{but } \alpha B \subsetneq A. \]
+\end{lem}
+
+\begin{lem}
+	Let \( I \neq 0 \) be an ideal in \( \Ocal_K \) and \( n = [L:K] \).
+	Then
+	\[ N(I \Ocal_L) = N(I)^n. \]
+\end{lem}
+
+\begin{exmp*}
+	For \( K = \Q \) we have already used this identity above, in which case it reduces to
+	\[ N\big( (p) \big) = p^n, \]
+	with \( (p) \subseteq \Ocal_L \) and \( p \) a rational prime.
+\end{exmp*}
+
+\begin{thmn}\label{thm:2.17}
+	Let \( P \) be a prime in \( \Ocal_K \) and \( P \Ocal_L = \prod_{i=1}^r Q_i^{e_i} \) the prime ideal factorisation in \( \Ocal_L \) with distinct ideals \( Q_1, \dotsc, Q_r \) and inertia degrees \( f_i = f(Q_i \mid P) \).
+	Then
+	\[ [L:K] = \sum_{i=1}^r e_i f_i. \]
+\end{thmn}
+
+\begin{exmp*}
+	\begin{enumerate}[label=(\alph*)]
+		\item Let \( p \) be a rational prime and \( \omega = e^{\frac{2\pi i}{p^r}} \) for some \( r \in \N \).
+			By \Cref{thm:1.31} we have
+			\[ p = \prod_{\substack{1 \leq k \leq m\\\gcd(k,m)=1}} \big( 1-\omega^k \big). \]
+			We show on the exercise sheet that for \( p \not\divides k \)
+			\[ (1-\omega^k) = u_k (1-\omega) \]
+			for some \( u_k \in \Z[\omega] \).
+			Hence in \( \Z[\omega] \) we have
+			\[ (p) = (1-\omega)^{\varphi(p^r)}. \]
+			By \Cref{thm:2.17}, we deduce that \( (1-\omega) \) is a prime ideal in \( \Z[\omega] \) and
+			\[ f\big( (1-\omega) \mid (p) \big) = 1 \]
+			
+		\item Let \( \alpha \) be a root of \( \alpha^3 = \alpha + 1 \).
+			Then \( \Q(\alpha) / \Q \) is an extension of degree 3.
+			One can compute \( \disc(1, \alpha, \alpha^2) = -23 \).
+			As 23 is square-free, we find that \( \Ocal_{\Q(\alpha)} = \Z[\alpha] \) with integral basis \( (1, \alpha, \alpha^2) \).
+			Moreover, in \( \Z[\alpha] \), we have
+			\begin{equation}\label{eq:Z_alpha_factorisation}
+				23 \cdot \Z[\alpha] = (23, \alpha-10)^2 (23, \alpha-3),
+			\end{equation}
+			where \( (23, \alpha-10) \) and \( (23, \alpha-3) \) are coprime.
+			Hence \eqref{eq:Z_alpha_factorisation} is the prime ideal factorisation of \( (23) \) in \( \Z[\alpha] \) and
+			\[ f\big( (23, \alpha-10) \mid 23 \big) = f\big( (23, \alpha-3) \mid 23 \big) = 1. \]
+	\end{enumerate}
+\end{exmp*}
+
+\begin{rem*}
+	In these examples we have found ramification indices \( e>1 \), which however is not the "typical" case, as we will see below.
+\end{rem*}
+
+\begin{defn*}[Ramified prime]\index{Ideal!Ramified prime}
+	Let \( P \) be a prime in \( \Ocal_K \).
+	We say that \( P \) is \emph{ramified in} \( \Ocal_L \), if there is a prime \( Q \) in \( \Ocal_L \), lying above \( P \), with
+	\[ e(Q \mid P) > 1. \]
+\end{defn*}
+
+\begin{thmn}
+	Let \( p \) be a rational prime (i.e. a prime number in \( \Z \)), which is ramified in \( \Ocal_K \).
+	Then
+	\[ p \divides \disc(\Ocal_K). \]
+\end{thmn}
+
+\begin{rem*}
+	One can even show, that \( p \divides \disc(\Ocal_K) \) imlies that \( p \) is ramified in \( \Ocal_K \).
+\end{rem*}
+
+\begin{cor}
+	There are only finitely many primes \( P \) in \( \Ocal_K \) which are ramified in \( \Ocal_L \).
+\end{cor}
