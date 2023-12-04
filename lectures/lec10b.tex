@@ -1,0 +1,54 @@
+\section{Finiteness of the ideal class group}
+
+Let \( K \) be a number field with ring of integers \( \Ocal_K \).
+We will keep this notation throughout this chapter.
+
+\begin{rec*}
+	We call two non-zero ideals \( I,J \subseteq \Ocal_K \) equivalent, if \( \existss \alpha,\beta \in \Ocal_K \setminus \{0\} \), such that \( \alpha I = \beta J \), and we write \( Cl(\Ocal_K) \) for the group of equivalence classes under multiplication.
+\end{rec*}
+
+\begin{frage*}
+	Is \( Cl(\Ocal_K) \) finite?
+\end{frage*}
+
+\begin{thmn}\label{thm:3.1}
+	For every number field \( K \) there is a constant \( C_K \), such that every non-zero ideal \( I \) contains an element \( \alpha \in I \setminus \{0\} \) with
+	\[ \big| N_{K/\Q} (\alpha) \big| \leq C_K N(I). \]
+\end{thmn}
+
+\begin{cor}\label{thm:3.2}
+	Let \( K \) and \( C_K \) be as in \Cref{thm:3.1}.
+	Then every ideal class \( C \in Cl(\Ocal_K) \) contains an ideal \( I \) with \( N(I) \leq C_K \).
+\end{cor}
+
+\begin{cor}\label{thm:3.3}
+	For every number field \( K \) we have \( |Cl(\Ocal_K)| < \infty \).
+\end{cor}
+
+\begin{exmp*}
+	Let \( K = \Q[\sqrt{2}] \), i.e. \( \Ocal_K = \Z[\sqrt{2}] \).
+	As in the proof of \Cref{thm:3.1}, we can take \( C_K = (1 + \sqrt{2})^2 \) (using the integral basis \( (1, \sqrt{2}) \)).
+	Note that \( (1 + \sqrt{2})^2 < 6 \).
+	We consider the prime ideals in \( \Z[\sqrt{2}] \), which lie above 2, 3, 5.
+	Note that \( 2 \Z[\sqrt{2}] = (\sqrt{2})^2 \) and that \( (3),\, (5) \) are prime ideals (see \Cref{thm:2.22}, noting that \( X^2-2 \) remains irreducible modulo 3, 5).
+	Hence \( \big| Cl(\Z[\sqrt{2}]) \big| = 1 \).
+\end{exmp*}
+
+\begin{rem*}
+	In the example above and other examples, we would like to take \( C_K \) as small as possible.
+\end{rem*}
+
+Our next goal will be to find improvements for the value of \( C_K \) using results from the geometry of numbers.
+
+\begin{idee*}
+	Let \( K \) be a number field of degree \( n \), \( \sigma_1, \dotsc, \sigma_r: K \hookrightarrow \R \) its real embeddings and \( \tau_1, \bar{\tau}_1, \tau_2, \bar{\tau}_2, \dotsc, \tau_s, \bar{\tau}_s: K \hookrightarrow \C \) its different complex embedings, where we sort them into pairs \( \tau_i, \bar{\tau}_i \), which differ by complex conjugations.
+	Then \( n = r + 2s \) and we can define an injective map 
+	\[ \varphi: K \to \R^n,\quad \alpha \mapsto \big( \sigma_1(\alpha), \dotsc, \sigma_r(\alpha), \Re \tau_1(\alpha) \Im \tau_1(\alpha), \dotsc, \Re \tau_s(\alpha), \Im \tau_s(\alpha) \big). \]
+	Let \( (\alpha_1, \dotsc, \alpha_n) \) be an integral basis of \( \Ocal_K \).
+	Then we can view \( \varphi(\Ocal_K) = \Z \varphi(\alpha_1) + \dots + \Z \varphi(\alpha_n) \subseteq \R^n \) as an additive group.
+	Also, if \( I \subseteq \Ocal_K \) is a non-zero ideal, then \( I \) is a free \( \Z \)-module of rank \( n \), say with basis \( (\beta_1, \dotsc, \beta_n) \).
+	Then
+	\[ \varphi(I) = \Z \varphi(\beta_1) + \dots + \Z \varphi(\beta_n) \subseteq \R^n \]
+	and we can interpret \( \varphi(I) \) as a \emph{lattice}\index{Lattice} in \( \R^n \).
+	In order to improve upon \( C_K \) is  \Cref{thm:3.1}, we would like to find a "small" non-zero element in this lattice.
+\end{idee*}
