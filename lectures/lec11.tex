@@ -1,0 +1,131 @@
+\lecture{05.12.2023}
+\section{Geometry of numbers}
+
+Motivation: Consider a lattice \( L \), e.g. \( \Z^n \subseteq \R^n \), and a "nice" subset \( C \subseteq \R^n \), e.g. a ball of radius \( r \).
+When does \( C \) contain a point in \( L \setminus\{0\} \)?
+
+\begin{defn*}[Lattice]\index{Lattice}
+	Let \( v_1, \dotsc, v_n \in \R^n \) be linearly independent vectors (over \( \R \)).
+	Then we call the group
+	\[ L = \set{z_1 v_1 + \dots + z_n v_n}{z_1, \dotsc, z_n \in \Z} \subseteq \R^n \]
+	a (full) \emph{lattice} in \( \R^n \) and \( v_1, \dotsc, v_n \) a basis of \( L \).
+	We define the determinant \( d(L) \) of the lattice \( L \) as
+	\[ d(L) = |\det(v_1, \dotsc, v_n)|. \]
+\end{defn*}
+
+\begin{rem*}
+	As additive groups we have \( L \cong \Z^n \).
+	If \( x \in L \) and \( v_1, \dotsc, v_n \) as above, then there is exactly one way to write \( x \) as \( \sum_{i=1}^{n} x_i v_i \) with \( x_1, \dotsc, x_n \in \Z \).
+\end{rem*}
+
+\begin{notat*}
+	We write \( M_{n \times n}(\Z) \) for the set of \( n \times n \) matrices with coefficients in \( \Z \). and \( GL(n, \Z) = \set{A \in M_{n \times n}(\Z)}{\det(M) = \pm 1} \) for the group of invertible matrices in \( M_{n \times n}(\Z) \).
+\end{notat*}
+
+\begin{lem}
+	Let \( L \subseteq \R^n \) be a lattice and \( \{v_1, \dotsc, v_n\},\ \{w_1, \dotsc, w_n\} \) bases of \( L \).
+	Then there exists a matrix \( A \in GL(n, \Z) \), say \( A = (a_{i,j})_{1 \leq i,j \leq n} \), such that
+	\[ w_i = \sum_{i=1}^{n} a_{i,j}v_j,\quad 1 \leq i \leq n. \]
+	Moreover,
+	\[ |\det (v_1, \dotsc, v_n)| = |\det(w_1, \dotsc, w_n)|. \]
+\end{lem}
+
+\begin{rem*}
+	In particular, the determinant \( d(L) \) of a lattice \( L \subseteq \R^n \) is well-defined.
+\end{rem*}
+
+Next, we want to compare the relative "size" of two lattices \( M \subseteq L \subseteq \R^n \).
+Let \( L = \set{\sum_{i=1}^{n} z_i v_i}{z_1, \dotsc, z_n \in \Z} \) and \( M = \set{\sum_{i=1}^{n} t_i w_i}{t_1, dotsc, t_n \in \Z} \) with \( M \subseteq L \).
+Then \( w_i \in L\ \foralll 1 \leq i \leq n \) and hence there exists an \( a_{i,j} \in \Z \) with \( w_i = \sum_{j=1}^{n} a_{i,j} v_j\ \foralll 1 \leq i \leq n \).
+Let \( A = (a_{i,j})_{1 \leq i,j \leq n} \in M_{n \times n}(\Z) \).
+
+\begin{defn*}[Index of a sublattice]
+	In the notation above, we define the \emph{index} \( [L:M] \) of \( M \) in \( L \) as
+	\[ [L:M] = |\det(A)|. \]
+\end{defn*}
+
+\begin{rem*}
+	\begin{enumerate}
+		\item The index \( [L:M] \) does not depend on the choice of bases of \( L,\, M \).
+			By \( w_i = \sum_{j=1}^{n} a_{i,j}v_j \), we have
+			\[ \underbrace{|\det(w_1, \dotsc, w_n)|}_{d(M)} = |\det(A)| \underbrace{|\det(v_1, \dotsc, v_n)|}_{d(L)}, \]
+			and hence \( [L:M] = \frac{d(M)}{d(L)} \).
+		\item One can show that \( [L:M] = |L/M| \), where \( L/M \) is the quotient group.
+	\end{enumerate}
+\end{rem*}
+
+\begin{exmp*}
+	Let \( e_1, \dotsc, e_n \) be the unit vectors in \( \R^n \), i.e. \( e_i = (0, \dotsc, 0, 1, 0, \dotsc, 0) \).
+	\begin{enumerate}
+		\item \( \Z^n = \set{\sum_{i=1}^{n} e_i z_i}{z_1, \dotsc, z_n \in \Z} \) is a lattice with \( d(\Z^n) = 1 \).
+			Let \( d_1, \dotsc, d_n \in \N \) and set \( w_i = d_i e_i \) for all \( 1 \leq i \leq n \).
+			Then \( M = \set{\sum_{i=1}^{n} z_i w_i}{z_1, \dotsc, z_n \in \Z} \subseteq \Z^n \) is a sublattice with \( d(M) = |\det(d_1e_1, \dotsc, d_ne_n)| = d_1 \dotsm d_n \) and \( [Z^n:M] = d_1 \dotsm d_n \).
+			Hence, as abelian groups, \( \Z^n/M \cong \Z/d_1 \Z \oplus \dots \oplus \Z/d_n\Z. \)
+		\item \( L = \set{\frac{a_1}{2} e_1 + \dots + \frac{a_n}{2} e_n}{a_1, \dotsc, a_n \in \Z,\ a_1 \equiv \dots \equiv a_n \bmod 2} \) is a lattice in \( \R^n \) with basis \( e_1, \dotsc, e_{n-1}, \frac{e_1 + \dots + e_n}{2} \).
+	\end{enumerate}
+\end{exmp*}
+
+\subsection*{Convex bodies}
+
+\begin{defn*}[Convex set]
+	We call a subset \( C \subseteq \R^n \) \emph{convex} if for all \( x, y \in C \) the line segment 
+	\[ \set{tx + (1-t)y}{0 \leq t \leq 1} \]
+	is contained in \( C \) as well.
+\end{defn*}
+
+\begin{defn*}[Central symmetric convex body]
+	A subset \( C \subseteq \R^n \)´is called a \emph{central symmetric convex body} if it has the following properties:
+	\begin{enumerate}[label=(\alph*)]
+		\item \( C \) is compact (i.e. closed and bounded) and convex. (convex body)
+		\item \( 0 \) is in the interior of \( C \). (central)
+		\item If \( x \in C \), then \( -x \in C \). (symmetric)
+	\end{enumerate}
+\end{defn*}
+
+\begin{exmp*}
+	\begin{enumerate}
+		\item Let \( C \subseteq \R^n \) be a central symmetric convex body and \( A: \R^n \to \R^n \) an invertible linear map.
+			Then \( A(C) \) is a central symmetric convex body.
+		\item The norm \( \|x\|_2 = \left( \sum_{i=1}^{n} |x_i|^2 \right)^\frac{1}{2} \) leads to the \( n \)-dimensional unit ball
+			\[ B_n = \set{x \in \R^n}{\|x\|_2 \leq 1}. \]
+			\( \|x\|_\infty = \max_{1 \leq i \leq n}|x_i| \) induces the \( n \)-dimensional unit cube
+			\[ K_n = \set{x \in \R^n}{\max_{1 \leq i \leq n} |x_i| \leq 1}. \]
+			\( \|x\|_1 = \sum_{i}^{n} |x_i| \) give the \( n \)-dimensional unit octahedron
+			\[ O_n = \set{x \in \R^n}{\sum_{i=1}^{n}|x_i| \leq 1}. \]
+	\end{enumerate}
+\end{exmp*}
+
+\begin{lem}
+	Let \( \|\cdot\|: \R^n \to \R^n_{\geq 0} \) be a norm.
+	Then \( B_{\|\cdot\|} = \set{x \in \R^n}{\| x \| \leq 1} \) is a central symmetric convex body.
+\end{lem}
+
+So far we have found that every norm on \( \R^n \) "produces" a central symmetric convex body in \( \R^n \).
+Is there a one-to-one correspondence, i.e. are these all the different classes of central symmetric convex bodies?
+
+\begin{rem*}
+	Let \( C \subseteq \R^n \) be a central symmetric convex body.
+	For \( \lambda \geq 0 \), set \( \lambda C = \set{\lambda x}{x \in C} \).
+	If \( \lambda > 0 \), then \( \lambda C \) is again a central symmetric body.
+	For \( x \in \R^n \), we define \( \|x\|_C = \min \set{\lambda \in \R_{\geq 0}}{x \lambda \in C} \).
+\end{rem*}
+
+\begin{lem}
+	Using the same notation as above, the following statements hold:
+	\begin{enumerate}
+		\item \( \| \cdot \|_C \) is well-defined.
+		\item \( \| \cdot \|_C \) defines a norm on \( \R^n \).
+		\item \( \lambda C = \set{x \in \R^n}{\|x\|_C \leq \lambda} \) for \( \lambda > 0 \).
+	\end{enumerate}
+	In particular, we recover \( C \) via \( C = \set{x \in \R^n}{\|x\|_C \leq 1} \).
+\end{lem}
+
+\subsection*{Minkowski's first convex body theorem}
+
+Let \( L \subseteq \R^n \) be a lattice and \( C \subseteq \R^n \) a central symmetric convex body.
+When is \( C \cap L \neq \{0\} \), i.e. when does \( C \) contain more lattice points than just \( 0 \)?
+
+\begin{thm}
+	With the same notation as above, let \( \vol(C) \geq 2^n d(L) \).
+	Then \( C \cap L \neq \{0\} \), i.e. there exists a \( x \in L \setminus \{0\} \) with \( x \in C \).
+\end{thm}
