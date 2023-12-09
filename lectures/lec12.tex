@@ -1,0 +1,88 @@
+\lecture{08.12.2023}
+\begin{notat*}
+	For a lattice \( L \subseteq \R^n \) with basis \( v_1, \dotsc, v_n \), we define
+	\[ F = \set{\sum_{i=1}^{n} x_i v_i}{0 \leq x_i \leq 1 \ \foralll 1 \leq i > n} \]
+	as the \emph{fundamental parallelepiped} for \( L \).
+	This is the fundamental domain for \( \R^n/L \). (see below)
+\end{notat*}
+
+\begin{exmp*}
+	\( [0,1)^n \) is the fundamental parallelepiped for \( \Z^n \).
+\end{exmp*}
+
+\begin{rem*}
+	A fundamental parallelepiped depends on the choice of basis \( v_1, \dotsc, v_n \), but we have \( \vol(F) = |\det(v_1, \dotsc, v_n)| = d(L) \).
+\end{rem*}
+
+\begin{lem}
+	Using the notation as above and for \( u \in \R^n \) we write \( u + F = \set{u+x}{x \in F} \).
+	Then
+	\[ \R^n = \bigcup_{u \in L} (u+F) \]
+	is a disjunction.
+\end{lem}
+
+\begin{rem*}
+	Recall Landau's \( O \)-notation: Let \( f, g, h: \R_{\geq x_0} \to \R \) for some \( x_0 \in \R \).
+	We write \( f(x) = g(x) + =(h(x)) \) if there exists \( x_1 \geq x_0 \) and \( C \geq 0 \), such that
+	\[ |f(x) - g(x)| \leq C h(x) \quad \foralll x > x_1. \]
+\end{rem*}
+
+\begin{exmp*}
+	\( x^{-1} = O(1),\ \lfloor x \rfloor = x + O(1),\ (x+a)^n = x^n + O(x^{n-1}) \) for any \( a \in \R,\ n \in \N \), \( (x+1)^\frac{1}{2} = x^\frac{1}{2} + O(x^{-\frac{1}{2}}) \)
+\end{exmp*}
+
+\begin{lem}
+	Let \( L \subseteq \R^n \) be a lattice and \( C \subseteq \R^n \) a central symmetric convex body.
+	Then, as \( \lambda \to \infty \), we have
+	\[ |\lambda C \cap L| = \frac{\vol(C)}{d(L)} \lambda^n + O \big(\lambda^{n-1} \big). \]
+\end{lem}
+
+\begin{frage*}
+	Do we need \( C \) to be central symmetric or convex in Minkowski's theorem?
+\end{frage*}
+
+\subsection*{Minkowski's second convex body theorem}
+
+Let \( L \subseteq \R^n \) be a lattice and \( C \subseteq \R^n \) a central symmetric convex body.
+When is \( L \cap C \neq \{0\} \)?
+
+%\begin{exmp*}
+%	\( L = \Z^2 \)
+%\end{exmp*}
+
+\begin{defn*}[Successive minima]
+	We let
+	\[ \lambda_1 = \min \set{\lambda > 0}{\lambda C \cap L \neq \{0\}} \]
+	and for \( 2 \leq i \leq n \) we define
+	\[ \lambda_i = \min \set{\lambda \in \R_{\geq 0}}{\lambda C \cap L \ \text{contains at least } i \ \text{linearly independent points}}. \]
+	We call \( \lambda_1, \dotsc, \lambda_n \) the \emph{successive minima} of \( L \) with respect to \( C \).
+\end{defn*}
+
+\begin{lem}\label{thm:3.10}
+	Let \( L, C \subseteq \R^n \) be as above.
+	The successive minima \( \lambda_1, \dotsc, \lambda_n \) of \( L \) with respect to \( C \) are well defined and we have \( 0 < \lambda_1 \leq \lambda_2 \leq \dots \leq \lambda_n < \infty \).
+	Moreover, there exist linearly independent elements \( v_1, \dotsc, v_n \in L \) with \( v_i \in \lambda_i C\ \foralll 1 \leq i \leq n \).
+\end{lem}
+
+\begin{cav*}
+	The vectors \( v_1, \dotsc, v_n \) from \Cref{thm:3.10} may not be a basis of \( L \).
+	Let
+	\[ L = \set{\frac{x_1 e_1 + \dots + x_n e_n}{2}}{x_i \in \Z,\ x_1 \equiv \dots \equiv x_n \bmod 2}. \]
+	For \( n>4 \) and \( C = B_n \) the unit ball, we have
+	\[ \left\| \frac{e_1 + \dots + e_n}{2} \right\| = \frac{1}{2} \sqrt{n} > 1, \]
+	but \( \|e_1\|_2 = \dots = \|e_n\|_2 = 1 \).
+\end{cav*}
+
+\begin{frage*}
+	Is there a relation between \( d(L) \) and the product \( \lambda_1 \dotsm \lambda_n \)?
+\end{frage*}
+
+\begin{exmp*}
+	The lattice \( L = \Z d_1 e_1 \oplus \dots \oplus \Z d_n e_n \) with \( 0 < d_1 \leq \dots \leq n_n \) has with respect to \( \| \cdot \|_\infty \) the successive minima \( d_1 \leq \dots \leq d_n \) and \( d_1 \dotsm d_n = d(L) \).
+\end{exmp*}
+
+\begin{thmn}[Minkowski's second convex body theorem, 1910]
+	Let \( L \subseteq \R^n \) be a lattice, \( C \subseteq \R^n \) a central symmetric convex body and \( \lambda_1, \dotsc, \lambda_n \) successive minima of \( L \) with respect to \( C \).
+	Then
+	\[ \frac{2^n}{n!} \frac{d(L)}{\vol(C)} \leq \lambda_1 \dotsm \lambda_n \leq 2^n \frac{d(L)}{\vol(C)} \]
+\end{thmn}
