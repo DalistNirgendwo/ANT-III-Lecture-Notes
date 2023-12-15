@@ -1,0 +1,80 @@
+\lecture{12.12.2023}
+\begin{rem*}
+	The upper bound is sharp.
+	Take for example \( L = \Z^n \) and \( C = \set{x \in \R}{\|x\|_\infty \leq 1} \), then \( \vol(C) = 2^n \), \( d(L) = 1 \), \( \lambda_1 = \dots = \lambda_n = 1 \).
+	The following example shows that the lower bound is sharp as well.
+\end{rem*}
+
+\begin{exmp*}
+	Let \( 0 < \lambda_1 \leq \dots \leq \lambda_n \), \( L = \Z^n \), \( C = \set{x \in \R^n}{\sum_{i=1}^{n} \lambda_i |x_i| \leq 1} \).
+	Then \( L \) has successive minima \( \lambda_1, \dotsc, \lambda_n \) with respect to \( C \) and \( \vol(C) = \frac{2^n}{n!} (\lambda_1 \dotsm \lambda_n)^{-1} \).
+\end{exmp*}
+
+Minkowski's second convex body theorem implies Minkowski's first convex body theorem.
+Let \( L, C \) be as above and assume that \( \vol(C) \geq 2^n d(L) \).
+Then
+\[ \lambda_1^n \leq \lambda_1 \dotsm \lambda_n \leq \frac{2^n d(L)}{\vol(C)} \leq 1\,, \]
+i.e. \( \lambda_1 \leq 1 \) and \( C \cap L \neq \{0\} \).
+
+\begin{rem*}
+	\Cref{thm:3.11} is invariant under linear transformation.
+	Let \( L, C, \lambda_1, \dotsc, \lambda_n \) be as above and \( \phi: \R^n \to \R^n \) a linear invertible map.
+	Then \( \phi(L) \) is a lattice, \( \phi(C) \) is a central symmetric convex body and one can show that \( \lambda_1, \dotsc, \lambda_n \) are the successive minima of \( \phi(L) \) with respect to \( \phi(C) \) as for \( x \in \R^n \) we have \( \|x\|_C = \|\phi(x)\|_{\phi(C)} \).
+	We note that
+	\[ \frac{d(\phi(L))}{\vol(\phi(C))} = \frac{|\det \phi| d(L)}{|\det \phi| \vol(C)} = \frac{d(L)}{\vol(C)} \, . \]
+	This means it suffices to prove \Cref{thm:3.11} for \( L = \Z^n \).
+\end{rem*}
+
+\begin{lem}
+	Let \( v_1, \dotsc, v_r \in \R^n \).
+	Then \( S = \set{\sum_{i=1}^{r} x_i v_i}{x_i \in \R,\ \sum_{i=1}^{r} |x_i| \leq 1 } \) is the smallest convex subset in \( \R^n \) that is symmetric about \( 0 \) and contains \( v_1, \dotsc, v_r \).
+	I.e. \( S \) is symmtric about 0 and if \( R \subseteq \R^n \) is convex, symmetric about 0 and \( v_1, \dotsc, v_r \in R \), then \( S \subseteq R \).
+\end{lem}
+
+\begin{thmn}\label{thm:3.13}
+	Let \( L \subseteq \R^n \) be a lattice.
+	Then there exist \( v_1, \dotsc, v_n \in L \), such that \( v_1, \dotsc, v_n \) are a basis of \( L \) and
+	\[ \|v_1\|_2 \dotsm \|v_n\|_2 \leq \left(\frac{4}{3}\right)^{\frac{n(n-1)}{4}} d(L) \,. \]
+\end{thmn}
+
+\begin{rem*}
+	This is a weaker version of the upper bound in \Cref{thm:3.11}.
+	Our constant \( \left(\frac{4}{3}\right)^{\frac{n(n-1)}{4}} \) is in general larger than \( 2^n \) (and is for large \( n \) actually pretty far off, as the exponent grows in \( n^2 \)), and each successive minimum \( \lambda_i \) is bounded above by \( \| v_i \|_2 \), so they might be even smaller.
+\end{rem*}
+
+\begin{cor}
+	Let \( \lambda_1, \dotsc, \lambda_n \) be the successive minima of a lattice \( L \subseteq \R^n \) with respect to \( B_n \).
+	Then
+	\[ \lambda_1 \dotsm \lambda_n \leq \left( \frac{4}{3} \right)^{\frac{n(n-1)}{4}} d(L) \,. \]
+\end{cor}
+
+\begin{cor}
+	Let \( E \subseteq \R^n \) be an ellipsoid, symmetric about 0 and \( L \subseteq \R^n \) a lattice.
+	Let \( \lambda_1, \dotsc, \lambda_n \) be the successive minima of \( L \)´with respect to \( E \).
+	Then
+	\[ \lambda_1 \dotsm \lambda_n \leq \left( \frac{4}{3} \right)^\frac{n(n-1)}{4} V(n) \frac{d(L)}{\vol(E)} \,, \]
+	where we write \( V(n) = \vol(B_n) \).
+\end{cor}
+
+\begin{thm*}[Jordan's\protect\footnotemark{} theorem]
+	\footnotetext{after M. E. Camille Jordan (1838 - 1922), a French mathematician}
+	Let \( C \subseteq \R^n \) be a central symmetric convex body.
+	Then there exists and ellipsoid \( E \subseteq \R^n \) with
+	\[ E \subseteq C \subseteq \sqrt{n} E \,. \]
+\end{thm*}
+
+\begin{cor}
+	For all \( n \in \N \) there exists a constant \( c(N) > 0 \) with the following property:
+	Let \( L \subseteq \R^n \) be a lattice, \( C \subseteq \R^n \) a central symmetric convex body, and \( \lambda_1, \dotsc, \lambda_n \) the successive minima of \( L \) with respect to \( C \).
+	Then
+	\[ \lambda_1 \dotsm \lambda_n \leq c(n) \frac{d(L)}{\vol(C)}\, . \]
+\end{cor}
+
+Let \( v_1 \in L \setminus \{0\} \) be such that \( \|v_1\|_2 = \lambda_1 \), where \( \lambda_1 \) is the first successive minimum of \( L \) with respect to \( B_n \).
+Fix an orthonormal basis \( \{e_1, \dotsc, e_n\} \) of \( \R^n \), such that \( e_1 = \lambda_1^{-1} v_1 \).
+Consider the projection \( \rho: \R^n \to \R^{n-1},\ \sum_{i=1}^{n} x_i e_i \mapsto (x_2, \dotsc, x_n) \).
+Let \( L' = \rho(L) \), e.g. if \( L = \Z d_1 e_1 \oplus \dots \oplus \Z d_n e_n \), then \( L' = \Z d_2 e_2 \oplus \dots \oplus \Z d_n e_n \).
+
+\begin{lem}
+	Using the same notation as above, \( L' \subseteq \R^{n-1} \) is a lattice and if \( v_1, \dotsc, v_n \) is a basis of \( L \) then \( \rho(v_2), \dotsc, \rho(v_n) \) is a bsis of \( L' \).
+\end{lem}
