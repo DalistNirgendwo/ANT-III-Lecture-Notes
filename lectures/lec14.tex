@@ -1,1 +1,77 @@
 \lecture{15.12.2023}
+\begin{lem}
+	Let \( \{v_2', \dotsc, v_n'\} \) be a basis of \( L' \) and \( v_2, \dotsc, v_n \in L \) with \( \rho(v_i) = v_i' \) for \( 2 \leq i \leq n \).
+	Then \( \{v_1, \dotsc, v_n\} \) is a basis of \( L \).
+\end{lem}
+
+\begin{lem}
+	\[ d(L) = \lambda_1 d(L') \,. \]
+\end{lem}
+
+\begin{lem}
+	Let \( v' \in L' \).
+	Then there exists \( v \in L \), such that \( \rho(v) = v' \) and
+	\[ \|v\|_2^2 \leq \frac{4}{3} \|v'\|_2^2 \,. \]
+\end{lem}
+
+\begin{rem*}
+	We always have \( \prod_{i=1}^{n} \|v_i\|_2 \geq d(L) \).
+\end{rem*}
+
+
+\section{Bounds for class numbers}
+
+For the rest of this section, let \( K \) be a number field with ring of integers \( \Ocal_K \).
+
+\begin{frage*}
+	Can we improve upon our earlier upper bounds on \( |Cl(\Ocal_K)| \)?
+\end{frage*}
+
+\begin{idee*}
+	We could interpret the non-zero ideal \( I \subseteq \Ocal_K \) as a lattice and apply Minkowski's first convex body theorem to find an element \( \alpha \in I \setminus \{0\} \) of small norm.
+\end{idee*}
+
+More concretely, let \( \sigma_1, \dotsc, \sigma_r: K \hookrightarrow \R \) be the real embeddings and \( \tau_1, \bar{\tau}_1, \dotsc, \tau_s, \bar{\tau}_s: K \hookrightarrow \C \) be the complex embeddings of \( K \).
+Note that \( r + 2s = n \), where \( n = [K:\Q] \).
+Define the map 
+\[ \varphi: K \to \R^n,\quad \alpha \mapsto \big( \sigma_1(\alpha), \dotsc, \sigma_r(\alpha), \Re \tau_1(\alpha), \Im \tau_1(\alpha), \dotsc, \Re \tau_s(\alpha), \Im \tau_s(\alpha) \big) \,. \]
+
+\begin{lem}
+	The image \( \varphi(\Ocal_K) =: \Lambda \) is a (full) lattice in \( \R^n \) with determinant
+	\[ d(\Lambda) = \frac{1}{2^s} \sqrt{|\disc \Ocal_K|} \,. \]
+\end{lem}
+
+\begin{rem*}
+	If \( I \) is a non-zero ideal, then the same argument shows that \( \varphi(I) \) is a sublattice of \( \Ocal_K \).
+	More precisely, \( d\big(\varphi(I)\big) = d \big( \varphi(\Ocal_K) \big) \underbrace{\big| \varphi(\Ocal_K) / \varphi(I) \big|}_{= |\Ocal_K / I|} \), i.e.
+	\[ d \big( \varphi(I) \big) = \frac{1}{2^s} \sqrt{|\disc \Ocal_K|} N(I) \,. \]
+\end{rem*}
+
+\begin{cor}
+	\( \varphi(K) \) is dense in \( \R^n \).
+\end{cor}
+
+Our next goal is for a non-zero ideal \( I \subseteq \Ocal_K \) to find a \( \alpha \in I \setminus \{0\} \), such that \( |N_{K / \Q} (\alpha)| \) is small.
+We write \( \varphi(\alpha) = (y_1, \dotsc, y_n) \in \R^n \).
+Then
+\[ N_{K/\Q}(\alpha) = y_1 \cdot y_2 \dotsm y_r \cdot \big( y_{r+1}^2 + y_{r+2}^2 \big) \dotsm \big( y_{n-1}^2 + y_n^2 \big) \,. \]
+The problem here is that the function \( N: \R^n \to \R \) is not a norm on \( \R^n \).
+
+\begin{idee*}
+	Construct a central symmetric convex body \( A \subseteq \R^n \), such that \( x \in A \) implies that \( |N(x)| \leq 1 \).
+\end{idee*}
+
+We define
+\[ A = \set{x \in \R^n}{|x_1| + \dots + |x_r| + 2 \left( \sqrt{x_{r+1}^2 + x_{r+2}^2} + \dots + \sqrt{x_{n-1}^2 + x_n^2} \right) \leq n} \]
+
+\begin{lem}
+	\( A \) is a central symmetric convex body with the property that \( x \in A \) implies \( |N(x)| \leq 1 \).
+	Moreover,
+	\[ \vol(A) = \frac{n^n}{n!} 2^r \left( \frac{\pi}{2} \right)^s \,. \]
+\end{lem}
+
+\begin{thmn}
+	Let \( I \subseteq \Ocal_K \) be a non-zero ideal.
+	Then there exists an \( \alpha \in I \setminus \{0\} \) with
+	\[ |N_{K/\Q}(\alpha)| \leq \frac{n!}{n^n} \left(\frac{4}{\pi}\right)^s \sqrt{|\disc \Ocal_K|} N(I) \,. \]
+\end{thmn}
