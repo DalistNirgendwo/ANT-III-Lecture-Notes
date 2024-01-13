@@ -1,0 +1,104 @@
+\lecture{19.12.2023}
+\begin{cor}
+	Every ideal class \( C \in Cl(\Ocal_K) \) contains a representative \( I \) with
+	\[ N(I) \leq \frac{n!}{n^n} \left( \frac{4}{\pi} \right)^s \sqrt{|\disc \Ocal_K|} \,. \]
+\end{cor}
+
+\begin{cor}\label{thm:3.25}
+	If \( K \neq \Q \) (i.e. \( n \neq 1 \)), then
+	\[ |\disc \Ocal_K| > 1 \,. \]
+\end{cor}
+
+\begin{exmp*}
+	We try to find the class group of \( \Z [\sqrt{-5}] \), i.e. we have \( K = \Q[\sqrt{-5}] \), \( \Ocal_K = \Z[\sqrt{-5}] \), \( n = 2 \), \( s=1 \).
+	By \Cref{thm:3.25} it is sufficient to consider ideals \( I \subseteq \Ocal_K \) with
+	\[ N(I) \leq \frac{2!}{4} \frac{4}{\pi} \underbrace{\sqrt{|\disc(\Z[\sqrt{-5}])|}}_{= 2 \sqrt{5}} = \frac{4 \sqrt{5}}{\pi} \leq 3 \,, \]
+	i.e. ideals lying above 2.
+	Recall that
+	\[ 2\Z[\sqrt{-5}] = (2, 1+\sqrt{-5})^2 \]
+	and \( (2, 1 + \sqrt{-5}) \) is not principal.
+	Hence
+	\[ |Cl(\Z[\sqrt{-5}])| = 2 \,. \]
+\end{exmp*}
+
+
+\section{Dirichlet's unit theorem}\label{sec:3.4}
+
+Let \( K \) be a number field with ring of integers \( \Ocal_K \).
+What can we say about the group of units \( \Ocal_K^* \)?
+
+\begin{exmp*}
+	\begin{itemize}
+		\item For \( K = \Q \) we have \( \Z^* = \{\pm 1\} \), for \( K = \Q(i) \) we have \( \Z[i]^* = \{\pm 1, \pm i\} \).
+			In the exercises we have seen that \( \Ocal_K^* \) is finite for all imaginary quadratic number fields \( K \).
+		\item If \( K = \Q(\sqrt{d}) \) with \( d \in \N \) square-free, then the Pell equation \( x^2 - dy^2 = 1 \) has a non-trivial solution \( (x_0, y_0) \) and \( x_0 + \sqrt{d}y_0 \) generates infinitely many units in \( \Ocal_K \)
+	\end{itemize}
+\end{exmp*}
+
+Let \( n = [K:\Q] \), \( \sigma_1, \dotsc, \sigma_r: K \hookrightarrow \R \) and \( \tau_1, \bar{\tau}_1, \dotsc, \tau_s, \bar{\tau}_s: K \hookrightarrow \C \) be the real and complex embeddings of \( K \).
+As in \Cref{sec:3.3}, let \( \varphi: K \to \R^n \) be defined by
+\[ \alpha \mapsto \big( \sigma_1(\alpha), \dotsc, \sigma_r(\alpha), \Re \tau_1(\alpha), \Im \tau_1(\alpha), \dotsc, \Re \tau_s(\alpha), \Im \tau_s(\alpha) \big) \,. \]
+
+\begin{defn*}
+	In the notation above we define the maps \( \log: \varphi(K \setminus \{0\}) \to \R^{r+s} \) as
+	\[ (x_1, \dotsc, x_n) \mapsto \Big( \log|x_1|, \dotsc, \log|x_r|, \log \big(x_{r+1}^2 + x_{r+2}^2 \big), \dotsc, \log \big( x_{n-1}^2 + x_n^2 \big) \Big) \]
+	and \( \psi: \K \setminus \{0\} \to \R^{r+s} \) as \( \psi = \log \circ \varphi \).
+\end{defn*}
+
+First properties of \( \psi \):
+\begin{enumerate}[label=(\alph*)]
+	\item\label{enum:3.26.1} For \( \alpha,\beta \in K \setminus \{0\} \) we have
+		\[ \psi(\alpha \beta) = \psi(\alpha) \psi(\beta) \,. \]
+	\item Let \( H \subseteq \R^{r+s} \) be the hyperplane given by \( y_1 + \dots + y_{r+s} = 0 \).
+		Then we have \( \psi(\Ocal_K^*) \subseteq H \), because every \( \alpha \in \Ocal_K^* \) satisfies
+		\[ 1 = |N_{K/\Q}(\alpha)| = |\sigma_1(\alpha)| \dotsm |\sigma_r(\alpha)| |\tau_1(\alpha)|^2 \dotsm |\tau_s(\alpha)|^2 \,, \]
+		i.e. \( 0 = \log|\sigma_1(\alpha)| + \dots + \log|\tau_s(\alpha)|^2 \).
+	\item Let \( B \subseteq \R^{r+s} \) be a bounded subset.
+		Then \( \log^{-1}(B) \cap \varphi (\Ocal_K \setminus \{0\}) \) is finite.
+\end{enumerate}
+
+Our next goal is to study the image \( \psi(\Ocal_K^*) \subseteq H \subseteq \R^{r+s} \).
+Note that by \ref{enum:3.26.1} above, \( \psi(\Ocal_K^*) \) is an (additive) subgroup of \( H \).
+
+\begin{lem}
+	Let \( G \subseteq \R^m \) be a subgroup, such that every bounded subset of \( G \) is finite.
+	Then there exist over \( R \) linearly independent vectors \( v_1, \dotsm, v_d \in \R^m \) for some \( d \leq m \) such that
+	\[ G = \set{\sum_{i=1}^d x_i v_i}{x_1, \dotsc, x_d \in \Z} \,. \]
+\end{lem}
+
+\begin{cor}
+	\( \psi(\Ocal_K^*) \) is a lattice in some linear subspace of \( H \).
+\end{cor}
+
+Next we will show that \( \psi(\Ocal_K^*) \) spans \( H \), i.e. \( \psi(\Ocal_K^*) \) is a lattice of full rank in \( H \).
+
+\begin{lem}
+	Let \( 1 \leq k \leq r+s \) and \( \alpha \in \Ocal_K \setminus \{0\} \).
+	Write \( \psi(\alpha) = (a_1, \dotsc, a_{r+s}) \).
+	Then there exists \( \beta \in \Ocal_K \setminus \{0\} \) with
+	\[ |N_{K/\Q}(\beta)| \leq \left( \frac{2}{\pi} \right)^2 \sqrt{|\disc \Ocal_K|} \]
+	and with the property that if \( \psi(\beta) = (b_1 \dotsc, b_{r+s}) \), then \( b_j < a_j \) for all \( 1 \leq j \leq r+s,\ j \neq k \)
+\end{lem}
+
+\begin{lem}\label{thm:3.30}
+	There exist units \( u_1, \dotsc, u_{r+s} \in \Ocal_K^* \) with the following property: If
+	\[ \psi(u_l) = \left( u_{l,1}, \dotsc, u_{l,{r+s}} \right) \,, \]
+	then \( u_{l,j} < 0 \) for all \( j \neq l \).
+\end{lem}
+
+\begin{rem*}
+	If we construct a matrix
+	\[ \begin{pmatrix}
+		\psi(u_1) \\ \vdots \\ \psi(u_l) \\ \vdots \\ \psi(u_{r+s})
+	\end{pmatrix} = \begin{pmatrix}
+	u_{1,1} & \dots & u_{1,l} & \dots & u_{1, r+s}\\
+	\vdots & \ddots & \vdots & & \vdots\\
+	u_{l,1} & \dots & u_{l,l} & \dots & u_{l, r+s}\\
+	\vdots & & \vdots & \ddots & \vdots\\
+	u_{r+s, 1} & \dots & u_{r+s, l} & \dots & u_{r+s, r+s}
+	\end{pmatrix} \]
+	\Cref{thm:3.30} tells us that the diagonals are positive while all other entries are negative.
+\end{rem*}
+
+Next we will let \( u_1, \dotsc, u_{r+s} \) be units as in \Cref{thm:3.30}.
+We would lke to show that \( \psi(u_1), \dotsc, \psi(u_{r+s}) \) span \( H \).

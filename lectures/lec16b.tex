@@ -1,0 +1,50 @@
+\section{Introduction}
+
+Motivation: Let \( \alpha \in \R \), how well can we approximate \( \alpha \) with rational numbers of small denominator?
+Given \( \epsilon>0 \), what is the "smallest" fraction \( \frac{x}{y} \) (i.e. \( y \) small), such that \( \left| \alpha - \frac{x}{y} \right| < \epsilon \), \( x \in \Z, y \in \N \)?
+
+\begin{thmn}[Dirichlet, 1842]
+	Let \( \alpha \in \R \) and \( Q \in \N \).
+	Then there exist \( x,y \in \Z \), such that \( \left| \alpha - \frac{x}{y} \right| \leq \frac{1}{yQ} \), \( 0 < y \leq Q \) and with \( \gcd(x,y) = 1 \).
+\end{thmn}
+
+\begin{cor}\label{thm:4.2}
+	Let \( \alpha \in \R \setminus \Q \).
+	Then there exist infinitely many pairs \( (x,y) \in \Z^2 \), such that \( y > 0 \), \( \gcd(x,y)=1 \) and \( \left| \alpha - \frac{x}{y} \right| \leq \frac{1}{y^2} \).
+\end{cor}
+
+\begin{thmn}[Dirichlet, 1842]
+	\begin{enumerate}[label=(\alph*)]
+		\item[]
+		\item Let \( \alpha_1, \dotsc, \alpha_n \in \R \) for some \( n \in \N \).
+			For all \( Q \in \N \) there exists a tuple \( x_1, \dotsc, x_n, y) \in \Z^{n+1} \) with \( 0 \leq y \leq Q^n \), such that
+			\[ \left| \alpha_i y - x_i \right| \leq \frac{1}{Q} \quad \foralll 1 \leq i \leq n \,. \]
+		\item Let \( \alpha_1, \dotsc, \alpha_n \in \R \), not all in \( \Q \).
+			Then there exist inifinitely many tuples \( (x_1, \dotsc, x_n, y) \in \Z^{n+1} \) with \( \gcd(x_1, \dotsc, x_n, y) = 1 \), \( y>0 \), such that
+			\[ \left| \alpha_i - \frac{x_i}{y} \right| \leq \frac{1}{y^{1 + \frac{1}{n}}} \quad \foralll 1 \leq i \leq n \,. \]
+	\end{enumerate}
+\end{thmn}
+
+Another application of Minkowski's convex body theorem: Rational points close to hyperplanes.
+
+\begin{thmn}
+	Let \( \alpha_1, \dotsc, \alpha_n \in \R \), such that \( 1, \alpha_1, \dotsc, \alpha_n \) are linearly independent over \( \Q \).
+	Then there exist infinitely many tuples \( (x, y_1, \dotsc, y_n) \in \Z^{n+1} \) with \( y_1, \dotsc, y_n) \neq (0, \dotsc, 0) \) and
+	\[ \big| \alpha_1 y_1 + \dots + \alpha_n y_n - x \big| \leq \left( \max_{1 \leq i \leq n} |y_i| \right)^{-n} \,. \]
+\end{thmn}
+
+An open problem: Recall the notation \( \|y\| = \min_{m \in \Z} |y-m| \) for \( y \in \R \).
+Let \( \alpha \in \R \).
+By Dirichlet's theorem there exist infinitely many \( y \in \N \) with \( y \|\alpha y \| \leq 1 \).
+Let \( \alpha, \beta \in \R \).
+Then there exist infinitley many \( y \in \N \) with \( y \|\alpha y\| \|\beta y\| \leq 1 \).
+
+\begin{conj*}[Littlewood\protect\footnotemark{} conjecture]
+	\footnotetext{after John Edensor Littlewood (1885 - 1977), a British mathematician}
+	Let \( \alpha,\beta \in \R \).
+	Then
+	\[ \liminf_{y \to \infty} y \|\alpha y\| \|\beta y\| = 0 \,. \]
+\end{conj*}
+
+Borel\footnote{Émile Borel (1871 - 1956), a French mathematician and politician} showed in 1909 that the exceptional set has Lebesgue measure 0.
+Einsiedler\footnote{Manfred Einsiedler (*1973), an Austrian mathematician}, Katok\footnote{Anatole Katok (1944-2018), an American mathematician} and Lindenstrauss\footnote{Elon Lindenstrauss (*1970), an Israeli mathematician} showed in 2006 that the exceptional set also has Hausdorff dimension 0.

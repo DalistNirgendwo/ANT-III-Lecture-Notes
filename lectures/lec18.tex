@@ -1,0 +1,98 @@
+\lecture{12.01.2024}
+Our next step will be to construct a polynomial \( f(x) \in \C[x] \), such that \( |F(0)|, \dotsc, |F(n)| \) are very small and the right-hand side of \eqref{eq:4.3} is a non-zero integer.
+
+Let \( p \) be a prime number to be chosen later.
+Define
+\[ f(X) = \frac{1}{(p-1)!} X^{p-1} \big( (X-1) (X-2) \dotsc (X_n) \big)^p \,. \]
+
+\begin{lem}
+	Let \( f \) be as above.
+	Then we have
+	\begin{enumerate}[label=(\roman*)]
+		\item \( f^{(p-1)}(0) = \big( (-1)^n n! \big)^p \)
+		\item \( f^{(j)} (a) \) if either \( a \in \{1, \dotsc, n\} \) and \( 0 \leq j \leq p-1 \) or \( a=0 \) and \( 0 \leq j \leq p-2 \)
+		\item Let \( 0 \leq a \leq n \) and \( j \geq p \). Then \( f^{(j)}(a) \equiv 0 \bmod p \).
+	\end{enumerate}
+\end{lem}
+
+\begin{lem}
+	Let \( p > |q_0 n| \).
+	Then
+	\[ M := \sum_{a=0}^{n} q_a F(a) \in \Z \setminus \{0\} \,. \]
+\end{lem}
+
+\begin{lem}
+	Let \( q_0, \dotsc, q_n \) and \( M \), \( p \) like above.
+	Then \( |M| \to 0 \) for \( p \to \infty \).
+\end{lem}
+
+We summarise: If \( q_0 + q_1e + \dots + q_ne^n = 0 \) for \( q_0, \dotsc, q_n \in \Z \), \( q_0 \neq 0 \), and \( f(X) = \frac{1}{(p-1)!} X^{p-1} \big( (X-1) \dotsm (X-n) \big)^p \) for a sufficiently large prime \( p \), then \( M = \sum_{a=0}^{n} q_a F(a) \in \Z \setminus \{0\} \) and \( |M| < \frac{1}{2} \), which is a contradiction.
+Hence, \( e \) is transcendental.
+
+\begin{rem*}
+	In the proof of \Cref{thm:4.8} we showd that for any \( n \in \N \), the numbers \( 1, e, e^2, \dotsc, e^n \) are linearly independent over \( \Q \) (and hence over \( \bar{\Q} \)). 
+\end{rem*}
+
+\begin{frage*}
+	Let \( \alpha_0, \dotsc, \alpha_n \in \bar{\Q} \).
+	Under which assumptions are the numbers \( e^{\alpha_0}, \dotsc, e^{\alpha_n} \) linearly dependent over \( \Q \) or \( \bar{\Q} \)?
+\end{frage*}
+
+We certainly need the \( \alpha_i \) to be distinct, as for example \( 1 \cdot e^\alpha + (-1) \cdot e^\alpha = 0 \) for all \( \alpha \in \bar{\Q} \).
+
+\begin{thmn}[Baker\protect\footnotemark{}, Lindemann\protect\footnotemark{}-Weierstraß\protect\footnotemark{}]\label{thm:4.15}
+	\footnotetext{Alan Baker (1939 - 2018), an English mathematician}
+	\footnotetext{after Ferdinand von Lindemann (1852-1939), a German mathematician,}
+	\footnotetext{and Karl Weierstraß (1815-1879), a German mathematician}
+	Let \( \alpha_1, \dotsc, \alpha_n, \beta_1, \dotsc, \beta_n \in \bar{\Q} \) for some \( n \in \N \).
+	Assume that \( \alpha_1, \dotsc, \alpha_n \) are pairwise distinct and \( \beta_1 \dotsm \beta_n \neq 0 \).
+	Then
+	\[ \beta_1 e^{\alpha_1} \dotsm \beta_n^{\alpha_n} \neq 0 \,. \]
+\end{thmn}
+
+\begin{rem*}
+	This implies that if \( \alpha_1, \dotsc, \alpha_n \in \bar{\Q} \) are pairwise distinct, then \( e^{\alpha_1}, \dotsc, e^{\alpha_n} \) are linearly independent over \( \bar{\Q} \).
+\end{rem*}
+
+\begin{cor}
+	Let \( \alpha \in \bar{\Q} \setminus \{0\} \).
+	Then \( e^\alpha \) is transcendental.
+\end{cor}
+
+\begin{cor}
+	\( \pi \) is transcendental.
+\end{cor}
+
+\begin{proof}
+	Assume \( \pi \in \bar{\Q} \).
+	Then \( i \pi \in \bar{\Q} \), but \( e^{i\pi} = -1 \) is not transcendental.
+\end{proof}
+
+\begin{cor}\label{thm:4.18}
+	Let \( \alpha_1, \dotsc, \alpha_n \in \bar{\Q} \) be linearly independent over \( \Q \).
+	Then \( e^{\alpha_1}, \dotsc, e^{\alpha_n} \) are algebraically independent.
+\end{cor}
+
+\begin{rem*}
+	\Cref{thm:4.18} is in fact equivalent to \Cref{thm:4.15}.
+\end{rem*}
+
+\begin{exmp*}
+	Imagine we try to show that
+	\[ 1 \cdot e^0 + 2 \cdot e^{\sqrt{3}} \neq 0 \,. \]
+	For \( \sigma \in \Gal(\Q(\sqrt{3})/\Q) \) and \( \alpha \in \Q(\sqrt{3}) \), set \( \sigma(e^\alpha) = e^{\sigma(\alpha)} \).
+	Then the non-trivial automorphism \( \sigma \in \Gal(\Q(\sqrt{3})/\Q) \) maps \( 1+2e^{\sqrt{3}} \) to \( 1+2e^{-\sqrt{3}} \).
+	However,
+	\[ \left( 1 + e^{\sqrt{3}} \right) \left( 1 + 2e^{-\sqrt{3}} \right) = 1+4 + 2e^{\sqrt{3}} + 2e^{-\sqrt{3}} \]
+	is invariant under \( \Gal(\Q(\sqrt{3})/\Q) \).
+\end{exmp*}
+
+We can reduce \Cref{thm:4.15} to the following result:
+
+\begin{thmn}["Weak Lindemann-Weierstraß theorem"]
+	Let \( \Q \subseteq L \subseteq \C \) be a normal number field.
+	Let \( \gamma_1, \dotsc, \gamma_t, \delta_1, \dotsc, \delta_t \in L \), such that \( \gamma_1, \dotsc, \gamma_t \) are pairwise distinct and \( \delta_1 \dotsm \delta_t \neq 0 \).
+	Assume that each \( \tau \in \Gal(L/\Q) \) permutes the pairs \( (\gamma_1, \delta_1), \dotsc, (\gamma_t, \delta_t) \).
+	Then
+	\[ \delta_1 e^{\gamma_1} + \dots + \delta_t e^{\gamma_t} \neq 0 \,. \]
+\end{thmn}

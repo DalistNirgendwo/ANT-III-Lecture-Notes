@@ -1,0 +1,176 @@
+\lecture{09.01.2024}
+
+\begin{frage*}
+	Can we do better than \Cref{thm:4.2}?
+\end{frage*}
+
+\begin{exmp*}
+	Let \( A > \sqrt{5} \) and \( \alpha = \frac{1+\sqrt{5}}{2} \).
+	Then the inequality \( |\alpha - \frac{x}{y}| \leq \frac{1}{Ay^2} \) has only finitely many solutions \( x,y \in \N \).
+\end{exmp*}
+
+For \( \delta > 0 \), consider the inequality
+\begin{equation}
+	\label{eq:4.1}
+	\left| \alpha - \frac{x}{y} \right| \leq \frac{1}{y^{2+\delta}}
+\end{equation}
+in \( x,y > 0 \), \( \gcd(x,y) = 1 \).
+For what \( \alpha \) does \eqref{eq:4.1} have inifinitely many solutions?
+Khinchin\footnote{Aleksandr Khinchin (1894 - 1959), a Soviet mathematician} showed in 1927 that the set of such \( \alpha \) has Lebesgue measure 0.
+
+\begin{exmp*}
+	Let \( a \in \N_{\geq 3} \) and set \( \alpha = \sum_{n=1}^{\infty} 10^{-a^{2n}} \).
+	The claim is that there exist infinitely many \( (x,y \in \Z^2) \) with \( y>0 \) and \( \gcd(x,y)=1 \), such that
+	\[ \left|\alpha - \frac{x}{y} \right| \leq \frac{1}{y^a} \,. \]
+\end{exmp*}
+
+\begin{idee*}
+	To construct such well-appropriable numbers we pick \( \alpha \) in the decimal expansion (or use any other base) with very few digits 1, which get more and more sparse, and set all other digits equal to zero.
+\end{idee*}
+
+\begin{thm*}[Roth\protect\footnotemark{}, 1955]
+	\footnotetext{Klaus Roth (1925 - 2015), a British mathematician}
+	Let \( \alpha \in \R \) be an algebraic number and \( \delta > 0 \). Then there are only finitely many tuples \( (x,y) \in \Z^2 \) with \( y>0 \), \( \gcd(x,y)=1 \) and
+	\[ \left| \alpha - \frac{x}{y} \right| \leq \frac{1}{y^{2+\delta}} \,. \]
+\end{thm*}
+
+Roth's theorem implies that \( \alpha = \sum_{n=1}^{\infty} 10^{-a^{2n}} \) for \( a \geq 3 \) is transcendental.
+
+\begin{defn*}[Linearly independent complex numbers]
+	We call a set \( \{\alpha_1, \dotsc, \alpha_n\} \in \C^n \) linearly independent over \( \Q \) if the relation \( x_1\alpha_1 + \dots + x_n\alpha_n = 0 \) with \( x_1, \dotsc, x_n \in \Q \) implies \( x_1 = \dots = x_n = 0 \).
+\end{defn*}
+
+\begin{thm*}[Schmidt\protect\footnotemark{}, 1971]
+	\footnotetext{Wolfgang M. Schmidt (*1933), an Austrian mathematician}
+	Let \( \alpha_1, \dotsc, \alpha_n \in \R \) algebraic such that \( \{1, \alpha_1, \dotsc, \alpha_n\} \) is linearly independent over \( \Q \).
+	Let \( \delta > 0 \).
+	Then there exist only finitely many tuples \( (x_1, \dotsc, x_n, y) \in \Z^{n+1} \) with \( y>0 \), \( \gcd(x_1, \dotsc, x_n, y)=1 \) and
+	\[ \left| \alpha_i - \frac{x_i}{y} \right| \leq y^{-1 - \frac{1}{n}} \quad \foralll 1 \leq i \leq n \,. \]
+\end{thm*}
+
+\begin{thm*}[Subspace Theorem, Schmidt, 1972]
+	Let \( n>2 \) and \( L_i = \alpha_{i1} x_1 + \dots + \alpha_{in}x_n \), \( 1 \leq i \leq n \), be \( n \) linearly independent linear forms with coefficients in \( \bar{\Q} \).
+	Let \( C, \delta > 0 \).
+	Then the solution of the inequality
+	\[ \left| L_1 \cdot L_2 \dotsm L_n \right| \leq C \max \{|x_1|, \dotsc, |x_n|\}^{-\delta} \]
+	with \( (x_1, \dotsc, x_n) \in \Z^n \) are contained in a finite union of proper linear subspaces of \( \Q^n \).
+\end{thm*}
+
+\begin{exmp*}
+	Let \( \alpha \) be an algebraic number and consider the linear forms \( ax_2 - x_1,\ x_2 \).
+	\[ |ax_2 - x_1| |x_2| \leq \max \{|x_1|, |x_2|\}^{-\delta} \]
+	The application of the Subspace Theorem leads us back to Roth's theorem.
+\end{exmp*}
+
+
+\section{Transcendence}
+
+\begin{defn*}[Algebraic and transcendental numbers]
+	We call \( \alpha \in \C \) \emph{algebraic} (over \( \Q \)) if there exists a non-zero polynomial \( P(x) \in \Q[x] \) such that \( P(\alpha) = 0 \).
+	If \( \alpha \in \C \) is not algebraic, then we call it \emph{transcendental}.
+\end{defn*}
+
+\begin{notat*}
+	We write \( \bar{\Q} = \set{\alpha \in \C}{\alpha \ \text{is algebraic}} \).
+\end{notat*}
+
+\begin{defn*}[Algebraically independent numbers]
+	We call \( \alpha_1, \dotsc, \alpha_r \in \C \) \emph{algebraically independent} if there is no non-zero polynomial \( P \in \bar{\Q}[x_1, \dotsc, x_r] \) with \( P(\alpha_1, \dotsc, \alpha_r) = 0 \).
+\end{defn*}
+
+\begin{exmp*}
+	\begin{enumerate}
+		\item \( \alpha \in \C \) is transcendental if and only if \( \alpha \) is algebraically independent.
+		\item \( e \) is transcendental.
+		\item \( \alpha_1 = e,\ \alpha_2 = e^2 \) are linearly independent over \( \bar{\Q} \) but not algebraically independent as \( \alpha_1^2 - \alpha_2 = 0 \).
+	\end{enumerate}
+\end{exmp*}
+
+\begin{defn*}[Transcendence degree, trancendence basis]
+	Let \( S \subseteq \C \).
+	We define the \emph{transcendence degree} of \( S \) as the maximal number \( t \in \Z_{\geq 0} \) (or \( t = \infty \)), such that \( S \) contains \( t \) algebraically independent elements.
+	We denote it by \( \trdeg S \).
+	If \( B \subseteq S \) is an algebraically independent subset with \( |B| = \trdeg S \), then we call \( B \) a \emph{transcendence basis} of \( S \).
+\end{defn*}
+
+\begin{exmp*}
+	\begin{enumerate}
+		\item \( \trdeg \Q(e) = 1 \) and \( \{e\} \) and \( \{e^2\} \) are examples of a transcendence basis for \( \Q(e) \).
+		\item Let \( S \subseteq \C \) with transcendence basis \( B = \{\alpha_1, \dotsc, \alpha_r\} \).
+			Then every \( x \in S \) is algebraic over \( \bar{\Q}(\alpha_1, \dots, \alpha_r) \).
+	\end{enumerate}
+\end{exmp*}
+
+\begin{lem}
+	Let \( \alpha \in \R \) and assume that there exists a sequence of tuples of integers \( (x_n, _n) \in \Z^2,\ n \in \N \), with \( y_n>0 \), \( \frac{x_n}{y_n} \neq \alpha \ \foralll n \in \N \) and
+	\[ |x_n - \alpha y_n| \to 0\ \text{as } n \to \infty \,. \]
+	Then \( \alpha \not\in \Q \).
+\end{lem}
+
+\begin{thmn}
+	\( e \not\in \Q \).
+\end{thmn}
+
+\begin{proof}
+	Write \( e = \sum_{k=0}^{\infty} \frac{1}{k!} \).
+	For \( n \in \N \) set \( x_n = n! \sum_{k=0}^{n} \frac{1}{k!} \) and \( y_n = n! \).
+	Then
+	\begin{align*}
+		0 &< \left| x_n - e y_n \right| = n! \sum_{k=n+1}^{\infty} \frac{1}{k!} = \frac{1}{n+1} + \frac{1}{(n+1)(n+2)} + \dots\\
+		&< \frac{1}{n+1} + \frac{1}{(n+1)^2} = \frac{1}{n+1} \sum_{q=0}^{\infty} \frac{1}{(n+1)^q} = \frac{1}{n+1} \cdot \frac{1}{1 - \frac{1}{n+1}}\\
+		&= \frac{1}{n} \to 0 \ \text{for } n \to \infty
+	\end{align*}
+\end{proof}
+
+\begin{thmn}
+	The number \( \alpha = \sum_{k=1}^{\infty} 10^{-k!} \) is transcendental.
+\end{thmn}
+
+\subsection*{Transcendence of \( e \)}
+
+For \( z \in \C \) we set \( e^z = \sum_{k=0}^{\infty} \frac{z^k}{k!} \).
+
+\begin{thmn}[Hermite\protect\footnotemark{}, 1873]
+	\label{thm:4.8}
+	\footnotetext{Charles Hermite (1822 - 1901), a French mathematician}
+	\( e \) is transcendental.
+\end{thmn}
+
+For a polynomial \( f \in \C[x] \) we define the integral transform \( F(z) = \int_{0}^{z} e^{z-u} f(u) \drm u \), where \( z \in \C \), and we integrate over the line segment \( \set{tz}{0 \leq t \leq 1} \), i.e.
+\[ F(z) = \int_{0}^{1} e^{z(1-t)} f(tz) z \drm t \,. \]
+
+\begin{exmp*}
+	If \( f(u) = u \), then 
+	\begin{align*}
+		F(z) = \int_{0}^{1} e^{z (1-z)} z^2 t \drm t &= \left[ \frac{1}{z} e^{z(1-t)} z^2 t \right]_0^1 + \int_{0}^{1} \frac{1}{z} e^{z(1-t)} z^2 \drm t\\
+		&= -z + \left[ -e^{z(1-t)} \right]_0^1 = e^z - z - 1
+	\end{align*}
+\end{exmp*}
+
+\begin{lem}
+	Let \( f \in \C[x] \) be of degree \( m \).
+	Then
+	\[ F(z) = e^z \left( \sum_{j=0}^{m} f^{(j)} (0) \right) - \sum_{j=0}^{m} f^{(j)} (z) \,. \]
+\end{lem}
+
+\begin{lem}
+	Let \( f \in \C[x] \) and \( z \in \C \).
+	Then
+	\[ |F(z)| \leq |z| e^{|z|} \sup_{\substack{u \in \C\\|u| \leq |z|}} |f(u)| \,. \]
+\end{lem}
+
+Now, assume that \( e \) is algebraic.
+Then there exists \( q_0, \dotsc, q_n \in \Z \), \( n \geq 0 \), \( q_n \neq 0 \), such that 
+\begin{equation}
+	\label{eq:4.2}
+	q_0 + q_1 e + \dots + q_n e^n = 0
+\end{equation}
+
+\begin{lem}
+	Let \( f \in \C[x] \) be of degree \( n \) and \( q_0, \dotsc, q_n \) as in \eqref{eq:4.2}.
+	Then
+	\begin{equation}
+		\label{eq:4.3}
+		\sum_{a=0}^{n} q_a F(a) = -\sum_{a=0}^{n} \sum_{j=0}^{m} q_a f^{(j)} (a) \,.
+	\end{equation}
+\end{lem}

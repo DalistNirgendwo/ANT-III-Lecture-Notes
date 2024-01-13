@@ -1,0 +1,34 @@
+\lecture{22.12.2023}
+\begin{lem}
+	Let \( A = (a_{ij})_{1 \leq i,j \leq m} \in Mat_{m \times m}(\R) \) and assume the following properties:
+	\begin{enumerate}[label=(\roman*)]
+		\item \( \sum_{j=1}^m a_{ij} = 0 \) for all \( 1 \leq i \leq m \)
+		\item \( a_{ii} > 0 \) for all \( 1 \leq i \leq m \)
+		\item \( a_{ij} < 0 \) for \( i \neq j \), \( 1 \leq i,j \leq m \)
+	\end{enumerate}
+	Then \( \rank(A) = m-1 \).
+\end{lem}
+
+\begin{cor}
+	The image \( \psi(\Ocal_K^*) \subseteq H \) is a lattice of rank \( r+s-1 \).
+\end{cor}
+
+\begin{thmn}[Dirichlet's\protect\footnotemark{} unit theorem]\label{thm:3.33}
+	\footnotetext{after Peter Gustav Lejeune Dirichlet (1805 - 1859), a German mathematician}
+	Let \( K \) be a number field with \( r \) real and \( 2s \) complex embeddings and \( \Ocal_K \) its ring of integers.
+	Then there exist units \( u_1, \dotsc, u_{r+s-1} \in \Ocal_K^* \), such that every unit \( u \in \Ocal_K^* \) can be written uniquely in the form
+	\[ u = \mu \cdot u_1^{e_1} \cdot u_2^{e_2} \dotsm u_{r+s-1}^{e_{r+s-1}} \]
+	with \( \mu \in K \) a root of unity and \( e_1, \dotsc, e_{r+s-1} \in \Z \).
+\end{thmn}
+
+\begin{rem*}
+	We call \( u_1, \dotsc, u_{r+s-1} \) as in \Cref{thm:3.33} a fundamental system of units.
+\end{rem*}
+
+\begin{exmp*}
+	\begin{enumerate}
+		\item If \( K \) is a cubic field with exaclty one real embedding, then the only roots of unity in \( K \) are \( \pm 1 \) (as they are the only roots on unity in \( \R \)).
+			Hence there exists a fundamental unit \( u \in \Ocal_K^* \) , such that \( \Ocal_K^* = \set{\pm u^k}{k \in \Z} \).
+		\item The only number fields with a finite group of units \( \Ocal_K^* \) are \( \Q \) and imaginary quadratic number fields.
+	\end{enumerate}
+\end{exmp*}
