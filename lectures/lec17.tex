@@ -49,7 +49,7 @@ Roth's theorem implies that \( \alpha = \sum_{n=1}^{\infty} 10^{-a^{2n}} \) for 
 \end{thm*}
 
 \begin{thm*}[Subspace Theorem, Schmidt, 1972]
-	Let \( n>2 \) and \( L_i = \alpha_{i1} x_1 + \dots + \alpha_{in}x_n \), \( 1 \leq i \leq n \), be \( n \) linearly independent linear forms with coefficients in \( \bar{\Q} \).
+	Let \( n>2 \) and \( L_i = \alpha_{i1} x_1 + \dots + \alpha_{in}x_n \), \( 1 \leq i \leq n \), be \( n \) linearly independent linear forms with coefficients in \( \QQbar \).
 	Let \( C, \delta > 0 \).
 	Then the solution of the inequality
 	\[ \left| L_1 \cdot L_2 \dotsm L_n \right| \leq C \max \{|x_1|, \dotsc, |x_n|\}^{-\delta} \]
@@ -63,7 +63,7 @@ Roth's theorem implies that \( \alpha = \sum_{n=1}^{\infty} 10^{-a^{2n}} \) for 
 \end{exmp*}
 
 
-\section{Transcendence}
+\section{Transcendence}\label{sec:4.2}
 
 \begin{defn*}[Algebraic and transcendental numbers]
 	We call \( \alpha \in \C \) \emph{algebraic} (over \( \Q \)) if there exists a non-zero polynomial \( P(x) \in \Q[x] \) such that \( P(\alpha) = 0 \).
@@ -71,18 +71,18 @@ Roth's theorem implies that \( \alpha = \sum_{n=1}^{\infty} 10^{-a^{2n}} \) for 
 \end{defn*}
 
 \begin{notat*}
-	We write \( \bar{\Q} = \set{\alpha \in \C}{\alpha \ \text{is algebraic}} \).
+	We write \( \QQbar = \set{\alpha \in \C}{\alpha \ \text{is algebraic}} \).
 \end{notat*}
 
 \begin{defn*}[Algebraically independent numbers]
-	We call \( \alpha_1, \dotsc, \alpha_r \in \C \) \emph{algebraically independent} if there is no non-zero polynomial \( P \in \bar{\Q}[x_1, \dotsc, x_r] \) with \( P(\alpha_1, \dotsc, \alpha_r) = 0 \).
+	We call \( \alpha_1, \dotsc, \alpha_r \in \C \) \emph{algebraically independent} if there is no non-zero polynomial \( P \in \QQbar[x_1, \dotsc, x_r] \) with \( P(\alpha_1, \dotsc, \alpha_r) = 0 \).
 \end{defn*}
 
 \begin{exmp*}
 	\begin{enumerate}
 		\item \( \alpha \in \C \) is transcendental if and only if \( \alpha \) is algebraically independent.
 		\item \( e \) is transcendental.
-		\item \( \alpha_1 = e,\ \alpha_2 = e^2 \) are linearly independent over \( \bar{\Q} \) but not algebraically independent as \( \alpha_1^2 - \alpha_2 = 0 \).
+		\item \( \alpha_1 = e,\ \alpha_2 = e^2 \) are linearly independent over \( \QQbar \) but not algebraically independent as \( \alpha_1^2 - \alpha_2 = 0 \).
 	\end{enumerate}
 \end{exmp*}
 
@@ -97,7 +97,7 @@ Roth's theorem implies that \( \alpha = \sum_{n=1}^{\infty} 10^{-a^{2n}} \) for 
 	\begin{enumerate}
 		\item \( \trdeg \Q(e) = 1 \) and \( \{e\} \) and \( \{e^2\} \) are examples of a transcendence basis for \( \Q(e) \).
 		\item Let \( S \subseteq \C \) with transcendence basis \( B = \{\alpha_1, \dotsc, \alpha_r\} \).
-			Then every \( x \in S \) is algebraic over \( \bar{\Q}(\alpha_1, \dots, \alpha_r) \).
+			Then every \( x \in S \) is algebraic over \( \QQbar(\alpha_1, \dots, \alpha_r) \).
 	\end{enumerate}
 \end{exmp*}
 

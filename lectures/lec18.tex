@@ -30,32 +30,29 @@ We summarise: If \( q_0 + q_1e + \dots + q_ne^n = 0 \) for \( q_0, \dotsc, q_n \
 Hence, \( e \) is transcendental.
 
 \begin{rem*}
-	In the proof of \Cref{thm:4.8} we showd that for any \( n \in \N \), the numbers \( 1, e, e^2, \dotsc, e^n \) are linearly independent over \( \Q \) (and hence over \( \bar{\Q} \)). 
+	In the proof of \Cref{thm:4.8} we showd that for any \( n \in \N \), the numbers \( 1, e, e^2, \dotsc, e^n \) are linearly independent over \( \Q \) (and hence over \( \QQbar \)). 
 \end{rem*}
 
 \begin{frage*}
-	Let \( \alpha_0, \dotsc, \alpha_n \in \bar{\Q} \).
-	Under which assumptions are the numbers \( e^{\alpha_0}, \dotsc, e^{\alpha_n} \) linearly dependent over \( \Q \) or \( \bar{\Q} \)?
+	Let \( \alpha_0, \dotsc, \alpha_n \in \QQbar \).
+	Under which assumptions are the numbers \( e^{\alpha_0}, \dotsc, e^{\alpha_n} \) linearly dependent over \( \Q \) or \( \QQbar \)?
 \end{frage*}
 
-We certainly need the \( \alpha_i \) to be distinct, as for example \( 1 \cdot e^\alpha + (-1) \cdot e^\alpha = 0 \) for all \( \alpha \in \bar{\Q} \).
+We certainly need the \( \alpha_i \) to be distinct, as for example \( 1 \cdot e^\alpha + (-1) \cdot e^\alpha = 0 \) for all \( \alpha \in \QQbar \).
 
-\begin{thmn}[Baker\protect\footnotemark{}, Lindemann\protect\footnotemark{}-Weierstraß\protect\footnotemark{}]\label{thm:4.15}
-	\footnotetext{Alan Baker (1939 - 2018), an English mathematician}
-	\footnotetext{after Ferdinand von Lindemann (1852-1939), a German mathematician,}
-	\footnotetext{and Karl Weierstraß (1815-1879), a German mathematician}
-	Let \( \alpha_1, \dotsc, \alpha_n, \beta_1, \dotsc, \beta_n \in \bar{\Q} \) for some \( n \in \N \).
+\begin{thmn}[Baker\protect\footnote{Alan Baker (1939 - 2018), an English mathematician}, Lindemann\protect\footnote{after Ferdinand von Lindemann (1852-1939), a German mathematician,}-Weierstraß\protect\footnote{and Karl Weierstraß (1815-1879), a German mathematician}]\label{thm:4.15}
+	Let \( \alpha_1, \dotsc, \alpha_n, \beta_1, \dotsc, \beta_n \in \QQbar \) for some \( n \in \N \).
 	Assume that \( \alpha_1, \dotsc, \alpha_n \) are pairwise distinct and \( \beta_1 \dotsm \beta_n \neq 0 \).
 	Then
 	\[ \beta_1 e^{\alpha_1} \dotsm \beta_n^{\alpha_n} \neq 0 \,. \]
 \end{thmn}
 
 \begin{rem*}
-	This implies that if \( \alpha_1, \dotsc, \alpha_n \in \bar{\Q} \) are pairwise distinct, then \( e^{\alpha_1}, \dotsc, e^{\alpha_n} \) are linearly independent over \( \bar{\Q} \).
+	This implies that if \( \alpha_1, \dotsc, \alpha_n \in \QQbar \) are pairwise distinct, then \( e^{\alpha_1}, \dotsc, e^{\alpha_n} \) are linearly independent over \( \QQbar \).
 \end{rem*}
 
 \begin{cor}
-	Let \( \alpha \in \bar{\Q} \setminus \{0\} \).
+	Let \( \alpha \in \QQbar \setminus \{0\} \).
 	Then \( e^\alpha \) is transcendental.
 \end{cor}
 
@@ -64,12 +61,12 @@ We certainly need the \( \alpha_i \) to be distinct, as for example \( 1 \cdot e
 \end{cor}
 
 \begin{proof}
-	Assume \( \pi \in \bar{\Q} \).
-	Then \( i \pi \in \bar{\Q} \), but \( e^{i\pi} = -1 \) is not transcendental.
+	Assume \( \pi \in \QQbar \).
+	Then \( i \pi \in \QQbar \), but \( e^{i\pi} = -1 \) is not transcendental.
 \end{proof}
 
 \begin{cor}\label{thm:4.18}
-	Let \( \alpha_1, \dotsc, \alpha_n \in \bar{\Q} \) be linearly independent over \( \Q \).
+	Let \( \alpha_1, \dotsc, \alpha_n \in \QQbar \) be linearly independent over \( \Q \).
 	Then \( e^{\alpha_1}, \dotsc, e^{\alpha_n} \) are algebraically independent.
 \end{cor}
 

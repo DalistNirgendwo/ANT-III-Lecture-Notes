@@ -1,0 +1,112 @@
+\lecture{16.01.2024}
+Let \( l \in \Z \setminus \{0\} \), such that \( l \gamma_1, \dotsc, l \gamma_t \) are algebraic integers.
+Let \( p \) be a prime.
+For \( 1 \leq k \leq t \) we define
+\[ f_K(X) = \frac{1}{(p-1)!} l^{pt} (X - \gamma_k)^{p-1} \prod_{\substack{i = 1\\i \neq k}}^{t} (X - \gamma_i)^p \,. \]
+Set \( F_k(z) = \int_{0}^{1} e^{z-u} f_k(u) \drm u \) and \( M_k = \delta_1 F_k(\gamma_1) + \dots + \delta_t F_k(\gamma_t) \).
+
+\begin{lem}
+	If \( \tau \in \Gal(L/\Q) \), then \( \tau(M_1) \in \{M_1, \dotsc, M_t\} \).
+\end{lem}
+
+\begin{notat*}
+	For \( \alpha, \beta \in \QQbar \), \( m \in \Z \setminus\{0\} \), we write \( \alpha \equiv \beta \bmod  m \) if \( \frac{\alpha-\beta}{m} \) is an algebraic integer.
+\end{notat*}
+
+\begin{lem}
+	Let \( 1 \leq m \leq t \).
+	Then
+	\begin{enumerate}[label=(\roman*)]
+		\item \( f_1^{(p-1)} (\gamma_1) = l^{pt} \left( \prod_{i=2}^{t} (\gamma_i - \gamma_1) \right)^p \)
+		\item If either \( 2 \leq m \leq t \) and \( 0 \leq j \leq p-1 \) or \( m=1 \) and \( 0 \leq j \leq p-2 \), then \( f_1^{(j)} (\gamma_m) = 0 \).
+		\item \( f_1^{(j)} (\gamma_m) \equiv 0 \bmod p \) if \( 1 \leq m \leq t \) and \( j \geq p \).
+	\end{enumerate}
+\end{lem}
+
+\begin{lem}
+	If \( p \) is sufficiently large, then \( M_1 \neq 0 \) is an algebraic integer.
+\end{lem}
+
+\begin{lem}
+	Let \( 1 \leq k \leq t \).
+	Then \( |M_k| \to 0 \) for \( p \to \infty \).
+\end{lem}
+
+
+\section{More on transcendence results}
+
+Recall our definition \( e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!} \) for \( z \in \C \).
+For \( \alpha, \beta \in \C \) with \( \alpha \neq 0 \), we set \( \alpha^b = e^{\beta \log \alpha} \), where \( \log \alpha \) is some solution of the equation \( \alpha = e^z \).
+I.e. if we fix one solution \( \log \alpha \), then all possibilities for \( e^{\beta \log \alpha} \) are given by \( e^{\beta(\log \alpha + 2\pi i k)} \), \( k \in \Z \).
+In \Cref{sec:4.2} we have seen that if \( \alpha_1, \dotsc, \alpha_n \in \QQbar \) are pairwise distinct, then \( e^{\alpha_1}, \dotsc, e^{\alpha_n} \) are linearly independent over \( \QQbar \).
+As a corollary: if \( \beta \in \QQbar \setminus \{0\} \), then \( e^\beta \) is transcendental.
+
+\begin{thmn}[Gelfond\protect\footnote{Alexander Gelfond (1906-1968), a Soviet mathematician, who did his Ph. D with Khinchin}, Schneider\protect\footnote{Theodor Schneider (1911-1988), a German mathematician, who worked in Göttingen until 1953 and later became the director of the MRI Oberwolfach}, 1934]
+	Let \( \alpha, \beta \in \QQbar \) with \( 0 \neq \alpha \neq 1 \) and \( \beta \not\in \Q \).
+	Then \( a^\beta = e^{\beta \log \alpha} \) is transcendental for any solution \( \log \alpha \).
+\end{thmn}
+
+\begin{cor}
+	Let \( \alpha \in \QQbar \) with \( \alpha \not\in i\Q \).
+	Then \( e^{\pi\alpha} \) is transcendental.
+\end{cor}
+
+\begin{cor}
+	Let \( \alpha_1, \alpha_2 \in \QQbar \setminus \{0\} \).
+	Fix a choice of logarithms of \( \log \alpha_1, \log\alpha_2 \) and assume that \( \log \alpha_1, \log\alpha_2 \) are linearly independent over \( \Q \).
+	Then if \( \beta_1, \beta_2 \in \QQbar \setminus \{0\} \), we have \( \beta_1 \log\alpha_1 + \beta_2 \log\alpha_2 \neq 0 \).
+\end{cor}
+
+\begin{exmp*}
+	The real logarithms \( \log 2 \) and \( \log 3 \) are linearly independent over \( \Q \) and \( \QQbar \).
+\end{exmp*}
+
+\begin{frage*}
+	How about elements \( \log \alpha_1, \dotsc, \log\alpha_n \) for \( \alpha_1,\dotsc,\alpha_n \in \QQbar \)?
+\end{frage*}
+
+\begin{thmn}[Baker, 1965]
+	Let \( \alpha_1, \dotsc, \alpha_n \in \QQbar \setminus \{0,1\} \) and fix choices for \( \log\alpha_1, \dotsc, \log\alpha_n \), such that \( \log\alpha_1, \dotsc, \log\alpha_n \) are linearly independent over \( \Q \).
+	Let \( \beta_1, \dotsc, \beta_n \in \QQbar \setminus \{0\} \).
+	Then \( \beta_1 \log\alpha_1 + \dots + \beta_n \log\alpha_n \) is transcendental.
+\end{thmn}
+
+\begin{rem*}
+	Baker's theorem gives us the stronger conclusion that \( 1, \log\alpha_1, \dotsc, \log\alpha_n \) are linearly independent over \( \QQbar \).
+\end{rem*}
+
+\begin{defn*}
+	Let \( \alpha \in \QQbar \) with primitive minimal polynomial \( f \in \Z[X] \), i.e. a minimal polynomial \( f(X) = a_0 + a_1X + \dots + a_dX^d \) with \( a_0, \dotsc, a_d \) and \( \gcd(a_0, \dotsc, a_d) = 1 \).
+	Then we set \( H(\alpha) = \max_{0 \leq i \leq d} |a_i| \).
+\end{defn*}
+
+\begin{thmn}
+	Let \( \alpha_1, \dotsc, \alpha_n \in \QQbar \setminus \{0,1\} \), \( \gamma \in \QQbar \) and \( \beta_1, \dotsc, \beta_n \in \QQbar \setminus \{0\} \).
+	Pick choices of \( \log\alpha_1, \dotsc, \log\alpha_n \) and assume that \( \log\alpha_1, \dotsc, \log\alpha_n \) are linearly independent over \( \Q \).
+	Then 
+	\[ \left| \gamma + \beta_1 \log\alpha_1 + \dots + \beta_n \log\alpha_n \right| \geq (eB)^-c \]
+	with \( B = \max \big( H(\gamma), H(\beta_1), \dotsc, H(\beta_n) \big) \) and \( c>0 \) an effectively computable constant depending on \( n, H(\alpha_1), \dotsc, H(\alpha_n) \) and the choices for \( \log\alpha_1, \dotsc, \log\alpha_n \).
+\end{thmn}
+
+\begin{frage*}
+	How can we recognise if \( \log\alpha_1, \dotsc, \log\alpha_n \) are \( \Q \)-linearly independent.
+\end{frage*}
+
+Assume that \( \log\alpha_1, \dotsc, \log\alpha_n \) are \( \Q \)-linearly dependent.
+Then there exist \( b_1, \dotsc, b_n \in \Z \), not all zero, such that
+\[ b_1 \log\alpha_1 + \dots + b_n \log\alpha_n = 0 \,, \]
+i.e.
+\[ \alpha_1^{b_1} \alpha_2^{b_2} \dotsm \alpha_n^{b_n} = 0 \,. \]
+
+\begin{defn*}[Multiplicative dependency]
+	We say that \( \alpha_1, \dotsc, \alpha_n \in \C \) are \emph{multiplicatively dependent} if there exist \( b_1, \dotsc, b_n \in \Z \), not all zero, such that
+	\[ \alpha_1^{b_1} \alpha_2^{b_2} \dotsm \alpha_n^{b_n} = 0 \,. \]
+\end{defn*}
+
+\begin{rem*}
+	If \( \alpha_1, \dotsc, \alpha_n \in \QQbar \setminus \{0\} \) are multiplicatively independent, then \( \log\alpha_1, \dotsc, \log\alpha_n \) are \( \Q \)-linearly independent.
+\end{rem*}
+
+\begin{cor}
+	Let \( \alpha_1, \dotsc, \alpha_n \in \QQbar \setminus \{0\}, \beta_1, \dotsc, \beta_n \in \QQbar \), such that \( \alpha_1, \dotsc, \alpha_n \) are multiplicatively independent and \( (\beta_1, \dotsc, \beta_n) \not\in \Q^n \), then \( \alpha_1^{\beta_1} \dotsm \alpha_n^{\beta_n} \) is transcendental (for any choice of \( \log\alpha_1, \dotsc, \log\alpha_n \)).
+\end{cor}
