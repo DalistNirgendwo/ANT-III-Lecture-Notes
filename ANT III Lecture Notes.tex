@@ -12,6 +12,7 @@
 %\usepackage{showframe}
 
 \makeindex[title=Definitions,intoc]
+\makeindex[title={Important theorems}, name=theorem, intoc]
 % \renewcommand{\lecture}[1]{%
 % 	\setcounter{video}{0}
 % 	\stepcounter{lecture}
@@ -29,7 +30,7 @@
 
 
 
-%\includeonly{./lectures/cpt13}
+%\includeonly{./lectures/cpt04}
 
 \usetikzlibrary{patterns}
 %\usepackage[dvipsnames]{xcolor}
@@ -77,5 +78,10 @@
 	%	\appendix
 	%	\renewcommand{\appendixtocname}{Anhang}
 	%	\addappheadtotoc
+	\begingroup
+	\let\clearpage\relax
 	\printindex
+	\printindex[theorem]
+	\endgroup
+	
 \end{document}
