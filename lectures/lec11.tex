@@ -4,7 +4,7 @@
 Motivation: Consider a lattice \( L \), e.g. \( \Z^n \subseteq \R^n \), and a "nice" subset \( C \subseteq \R^n \), e.g. a ball of radius \( r \).
 When does \( C \) contain a point in \( L \setminus\{0\} \)?
 
-\begin{defn*}[Lattice]\index{Lattice}
+\begin{defn*}[Lattice]\index{Lattice}\index{Lattice!Determinant}
 	Let \( v_1, \dotsc, v_n \in \R^n \) be linearly independent vectors (over \( \R \)).
 	Then we call the group
 	\[ L = \set{z_1 v_1 + \dots + z_n v_n}{z_1, \dotsc, z_n \in \Z} \subseteq \R^n \]
@@ -39,7 +39,7 @@ Let \( L = \set{\sum_{i=1}^{n} z_i v_i}{z_1, \dotsc, z_n \in \Z} \) and \( M = \
 Then \( w_i \in L\ \foralll 1 \leq i \leq n \) and hence there exists an \( a_{i,j} \in \Z \) with \( w_i = \sum_{j=1}^{n} a_{i,j} v_j\ \foralll 1 \leq i \leq n \).
 Let \( A = (a_{i,j})_{1 \leq i,j \leq n} \in M_{n \times n}(\Z) \).
 
-\begin{defn*}[Index of a sublattice]
+\begin{defn*}[Index of a sublattice]\index{Lattice!Index}
 	In the notation above, we define the \emph{index} \( [L:M] \) of \( M \) in \( L \) as
 	\[ [L:M] = |\det(A)|. \]
 \end{defn*}

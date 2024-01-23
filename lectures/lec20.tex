@@ -1,0 +1,158 @@
+\lecture{19.01.2024}
+\begin{conj}[Schanuel's\protect\footnote{after Stephen Schanuel (1933 - 2014), an American mathematician} conjecture]
+	Let \( x_1, \dotsc, x_n \in \C \) be linearly independent over \( \Q \).
+	Then
+	\[ \trdeg \big( x_1, \dotsc, x_n, e^{x_1}, \dotsc, e^{x_n} \big) \geq n \,. \]
+\end{conj}
+
+Schanuel's conjecture implies the Lindemann-Weierstraß theorem.
+Let \( \alpha_1, \dotsc, \alpha_n \in \QQbar \) be linearly independent over \( \Q \).
+Then \( \trdeg (\underbrace{\alpha_1, \dotsc, \alpha_n}_{\trdeg(e^{\alpha_1}, \dotsc, e^{\alpha_n})}, e^{\alpha_1}, \dotsc, e^{\alpha_n}) \geq n \), i.e. \( e^{\alpha_1}, \dotsc, e^{\alpha_n} \) are algebraically independent.
+It also implies Baker's theorem.
+Let \( \alpha_1, \dotsc, \alpha_n \in \QQbar \setminus \{0,1\} \), such that \( \log \alpha_1, \dotsc, \log\alpha_n \) are linearly independent over \( \Q \).
+Then \( n \leq \trdeg (\log\alpha_1, \dotsc, \log\alpha_n, \alpha_1, \dotsc, \alpha_n) = \trdeg(\log\alpha_1, \dotsc, \log\alpha_n) \).
+I.e. there is a non-trivial algebraic relation over \( \QQbar \) of \( \log\alpha_1, \dotsc, \log\alpha_n \), in particular if \( \beta_1, \dotsc, \beta_n \in \QQbar \), not all zero, then \( \beta\log\alpha_1 + \dots + \beta_n\log\alpha_n \not\in \QQbar \).
+
+What is known towards Schanuel's conjecture?
+\begin{itemize}
+	\item[\( n=1 \):] If \( x \in \C \) is transcendental, then \( \trdeg (x, e^x) \geq 1 \), if \( x \in \QQbar \setminus \{0\} \), then \( e^x \) is transcendental by Lindemann-Weierstraß.
+	\item[\( n=2 \):] This is still open.
+		For example, we don't know if \( (\log 2)(\log 3) \) is transcendental (by Baker's theorem they are \( \QQbar \)-linearly independent).
+		Schanuel's conjecture would imply that \( \trdeg(\log 2, \log 3, 2, 3) = \trdeg(\log 2, \log 3) \geq 2 \), i.e. \( \log 2, \log 3 \) are algebraically independent.
+\end{itemize}
+
+\begin{conj}
+	\( e \) and \( \pi \) are algebraically independent.
+\end{conj}
+
+\begin{conj}
+	Let \( \alpha_1, \dotsc, \alpha_n \in \QQbar \setminus \{0,1\} \) and assume that \( \log\alpha_1, \dotsc, \log\alpha_n \) are \( \Q \)-linearly independent for some choices of \( \log\alpha_1, \dotsc, \log\alpha_n \).
+	Then \( \log\alpha_1, \dotsc, \log\alpha_n \) are algebraically independent.
+\end{conj}
+
+\begin{thmn}
+	Let \( \alpha, \beta \in \QQbar \cap \R \) with \( \alpha > 0 \), \( \alpha \neq 1 \) and \( \beta \not\in \Q \).
+	Let \( \log\alpha \) be the real logarithm of \( \alpha \).
+	Then \( \alpha^\beta 0 e^{\beta \log\alpha} \) is transcendental.
+\end{thmn}
+
+
+\section{Siegel's lemma}
+
+Consider \( m \) linear equations in \( n \) variables, say
+\begin{equation}\label{eq:4.4}
+	\begin{array}{c}
+		a_{11} x_1 + \dots + a_{1n}x_n = 0\\
+		\vdots \\
+		a_{n1}x_1 + \dots + a_{nn}x_n = 0
+	\end{array}
+\end{equation}
+Assume \( m \in n \) and \( a_{ij} \in \Z \) for \( 1 \leq i,j \leq n \).
+Then there exists a solution \( x \in \Q^n \setminus \{0\} \) and hence also a solution \( x \in \Z^n \setminus \{0\} \).
+What can we say about the size of a "smallest" solution?
+
+\begin{exmp*}
+	\begin{itemize}
+		\item Let \( m=1 \), \( n=2 \), \( a \in \Z \setminus \{0\} \).
+			Then every solution \( (x_1,x_2) \in \Z^2 \setminus \{0\} \) to  the equations \( x_1 + a_x2 = 0 \) satisfies \( x_1 \neq 0 \) and \( a \divides x_1 \), i.e. \( \|x\|_\infty \geq a \).
+		\item Let \( a \in \Z \setminus \{0\} \), \( m \) arbitrary and \( n = m-1 \).
+			Consider the system1
+			\begin{alignat*}{4}
+				x_1 + a &x_2 && && &&= 0\\
+				&x_2 + a &&x_3 && &&= 0\\
+				& && &&x_{n-1} + ax_n &&= 0
+			\end{alignat*}
+			Every non-trivial solution \( x \in \Z^n \) satisfies \( x_1 \dotsm x_n \neq 0 \) and \( a^{n-1} \divides x_1 \), i.e. \( \|x\|_\infty \geq a^{n-1} \)
+	\end{itemize}
+\end{exmp*}
+
+\begin{thm}[Siegel's\protect\footnote{after Carl Ludwig Siegel (1896-1981), a German mathematician} lemma]\label{thm:4.34}
+	Let \( n > m > 0 \), \( A \geq 1 \) and \( a_{ij} \in \Z \) for \( 1 \leq i \leq m,\ 1 \leq j \leq n \), such that \( |a_{ij}| \leq A \ \foralll i,j \).
+	Then there exists a solution \( x \in \Z^n \setminus \{0\} \) to the system \eqref{eq:4.4}, such that
+	\[ \max_{1 \leq i \leq n} |x_i| \leq (nA)^\frac{m}{n-m} \]
+\end{thm}
+
+An alternate point of view: Consider \( m=1 \).
+Let \( a_1, \dotsc, a_n \in \Z \) with \( \gcd(a_1, \dotsc, a_n) = 1 \) and define the hyperplane \( H = \set{x \in \R^n}{\sum_{i=1}^{n} a_ix_i = 0} \) and the lattice \( \Lambda = \set{x \in \Z^n}{\sum_{i=1}^{n} a_ix_i = 0} \).
+Then \( \Lambda \subset H \) is a lattice of rank \( n-1 \).
+
+\begin{lem}
+	Assume that \( \gcd(a_1, \dotsc, a_n)=1 \).
+	Then \( d(\Lambda) = \|a\|_2 \).
+\end{lem}
+
+If \( \lambda_1, \dotsc, \lambda_n \) are successive minima of \( \Lambda \) with respect to \( \|\cdot\|_\infty \), then by Minkowski's second convex body theorem, \( \lambda_1 \dotsm \lambda_{n-1} \ll  d(\Lambda) = \|a\|_2 \), i.e. \( \lambda_1^{n-1} \leq \|a\|_2, \lambda_1 \ll \|a\|_2^\frac{1}{n-1} \).
+
+Next, we want to solve \eqref{eq:4.4} in \( x \in \Z^n \), where the coefficients \( a_{ij} \) are elements in some number field.
+
+\begin{exmp*}
+	Let \( d \in \Z \setminus \{0,1\} \) be square-free and \( K = \Q(\sqrt{d}) \).
+	Set
+	\[ \omega_d = \begin{cases}
+		\sqrt{d}, &d \equiv 2,3 \bmod 4\\
+		\frac{1 + \sqrt{d}}{2} \quad &d \equiv 1 \bmod 4
+	\end{cases} \]
+	Then \( 1, \omega_d \) is an integral basis.
+	For \( n > 2m > 0 \), consider the system
+	\begin{equation}\label{eq:4.5}
+		\begin{array}{c}
+			a_{11} x_1 + \dots + a_{1n} x_n = 0\\
+			\vdots \\
+			a_{m1} x_1 + \dots + a_{mn} x_n = 0
+		\end{array}
+	\end{equation}
+	with \( a_{ij} \in \Ocal_K \).
+	Our goal is to find solutions \( (x_1, \dotsc, x_n) \in \Z^n \setminus \{0\} \).
+	Our first idea would be to write \( a_{ij} = b_{ij} + c_{ij} \omega_d \).
+	Then rewrite \eqref{eq:4.5} as
+	\begin{align*}
+		(b_{11} + c_{ii}\omega_d) x_1 + \dots &+ (b_{1n} + c_{1n}\omega_d) x_n = 0\\
+		&\vdots \\
+		(b_{m1} + c_{m1}\omega_d) x_1 + \dots &+ (b_{mn} + c_{mn}\omega_d) x_n = 0
+	\end{align*}
+	This is equivalent to
+	\begin{align*}
+		b_{11}x_1 + \dots &+ b_{1n}x_n = 0\\
+		&\vdots\\
+		b_{m1}x_1 + \dots &+ b_{mn}x_n = 0\\
+		c_{11}x_1 + \dots &+ c_{1n}x_n = 0\\
+		&\vdots\\
+		c_{m1}x_1 + \dots &+ x_{mn}x_n = 0
+	\end{align*}
+	If \( n > 2m \), then this is a system as in \Cref{thm:4.34} and it has a non-zero solution \( x \in \Z^n \) with
+	\[ \max_{1 \leq i \leq n} |x_i| \leq (nA)^\frac{2m}{n-2m} \,, \]
+	where \( A = \max{i,j} \big\{ |b_{ij}|, |c_{ij|} \big\} \).
+\end{exmp*}
+
+\begin{rem*}
+	Note that in this construction \( A \) depends on the choice of basis \( 1, \omega_d \).
+	We will use a basis-independent approach below.
+\end{rem*}
+
+Our general set-up will be to let \( K \) be a number field of degree \( d \) with ring of integers \( \Ocal_K \).
+Let \( \sigma_1, \dotsc, \sigma_d: K \hookrightarrow \C \) be the \( d \) distinct embeddings, such that \( \sigma_1, \dotsc, \sigma_r: K \hookrightarrow \R \) are the real embeddings and \( \sigma_{r+1}, \dotsc, \sigma_{r+s}: K \hookrightarrow \C \) complex embeddings with \( r + 2s = d \) and \( \sigma_{r+s+1} = \overline{\sigma_{r+1}}, \dotsc, \sigma_{r+2s} = \overline{\sigma_{r+s}} \).
+Define the map \( \varphi: K \to \R^d \),
+\[ x \mapsto \big( \sigma_1(x), \dotsc, \sigma_r(x), \Re \sigma_{r+1}(x), \Im \sigma_{r+1}(x), \dotsc, \Re \sigma_{r+s}(x), \Im \sigma_{r+s}(x) \big) \]
+
+\begin{defn*}[House]
+	Let \( \alpha \in K \).
+	We define the \emph{house of \( \alpha \)} as
+	\[ \house{\alpha} = \max \big( |\sigma_1(\alpha)|, \dotsc, |\sigma_d(\alpha)| \big) \,. \]
+\end{defn*}
+
+\begin{rem*}
+	The definition of \( \house{\alpha} \) is independent of the field \( K \) with \( \alpha \in K \).
+	If \( \alpha \in \QQbar \) has a minimal polynomial of degree \( m \) over \( Q \) and conjugates \( \alpha^{(1)}, \dotsc, \alpha^{(m)} \), then
+	\[ \house{\alpha} = \max \big( |\alpha^{(1)}|, \dotsc, |\alpha^{(m)}| \big) \,. \]
+\end{rem*}
+
+\begin{frage*}
+	The rational integers \( \Z \subset \Q \) are discrete, in particular if \( m \in \Z \), \( |m| < 1 \), then \( m=0 \).
+	Is there a similar statement for \( \Ocal_K \subset K \)?
+\end{frage*}
+
+\begin{obs*}
+	Let \( \alpha \neq 0 \) be an algebraic integer with conjugates \( \alpha^{(1)}, \dotsc, \alpha^{(m)} \).
+	Then there is at least one index \( j \) with
+	\[ |\alpha^{(j)}| \geq 1 \,. \]
+\end{obs*}
