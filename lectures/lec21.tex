@@ -1,0 +1,90 @@
+\lecture{23.01.2024}
+\begin{lem}
+	Let \( \alpha \in \Ocal_K \) with \( \|\varphi(\alpha)\|_\infty \leq \frac{2}{3} \), then \( \alpha = 0 \).
+\end{lem}
+
+\begin{thm}
+	Let \( K / \Q \) be as above, i.e. \( [K:\Q] = d \).
+	Let \( m, n \in \N \) with \( n > dm \) and \( A \in \R_{\geq 1} \).
+	Suppose \( a_{ij} \in \Ocal_K \) with \( \house{\alpha_{ij}} \leq A \) for all \( 1 \leq i \leq m, 1 \leq j \leq n \).
+	Then the system
+	\begin{equation*}
+		\begin{array}{c}
+			a_{11} x_1 + \dots + a_{1n} x_n = 0\\
+			\vdots \\
+			a_{m1} x_1 + \dots + a_{mn} x_n = 0
+		\end{array}
+	\end{equation*}
+	has a solution \( x \in \Z^n \setminus \{0\} \) with
+	\[ \max_{1 \leq i \leq n} |x_i| \leq (3nA)^\frac{dm}{n-dm} \,. \]
+\end{thm}
+
+
+\section{Approaches towards the Gelfond-Schneider theorem}
+
+\begin{thm}[Weak version of Gelfond-Schneider theorem]\index[theorem]{Gelfond-Schneider theorem!weaker version}
+	Let \( \alpha,\beta \in \QQbar \cap \R \) with \( \alpha>0 \), \( \alpha \neq 1 \), and \( \beta \not\in \Q \).
+	Let \( \log\alpha \) be the real logarithm of \( \alpha \).
+	Then \( \alpha^\beta = e^{\beta \log\alpha} \) is transcendental.
+\end{thm}
+
+We will give an outline to the proof.
+Assume that \( \gamma = \alpha^\beta \in \QQbar \) and let \( K = \Q(\alpha, \beta, \gamma) \), \( d = [K:\Q] \).
+Choose \( m \in \N \), such that \( m\alpha, m\beta, m\gamma \) are all algebraic integers.
+Let \( D_1, D_2, L \in \N \) be parameters to be chosen later.
+
+\underline{Step 1:} We construct a function
+\[ F(z) = \sum_{i=0}^{D_1-1} \sum_{j=0}^{D_2 - 1} a_{ij}z^i \alpha^{jz} \]
+with the following properties:
+\begin{itemize}
+	\item \( a_{ij} \in \Z \) for all \( 0 \leq i < D_1 \), \( 0 \leq j < D_2 \), not all zero
+	\item \( F(a+b\beta) = 0 \) for all \( 1 \leq a, b \leq L \)
+	\item there is a constant \( c_1 > 0 \) only depending on \( \alpha, \beta, \gamma, d \), such that
+		\[ |a_{ij}| \leq e^{c_1 (D_1 \log L + D_2 L)} \]
+		for all \( 0 \leq i < D_1 \), \( 0 \leq j < D_2 \).
+\end{itemize}
+Assume \( D_1D_2 \geq 2dL^2 \).
+Then such a function can be constructed using Siegel's lemma.
+
+Next we choose \( D_1, D_2 \), such that \( D_1 = D_2L \) and \( D_1D_2 = 2dL^2 \), i.e. \( D_1 = \sqrt{2d}L^\frac{3}{2} \), \( D_2 = \sqrt{2d}L^\frac{1}{2} \).
+If \( L = 2dM^2 \) for some \( M \in \N \), then \( D_1, D_2 \) are both integers, and \( |a_{ij}| \leq e^{c_3 L^\frac{3}{2} \log L} \) for some \( c_3 \).
+
+\underline{Step 2:} We show that \( F(z) \) has at most \( D_1D_2 = 2dL^2 \) zeros in \( \R \).
+For this we view \( F(z) \) as an exponential polynomial, i.e. a function of the form
+\begin{equation}\label{eq:4.6}
+	E(z) = \sum_{k=1}^{r} p_k(z) e^{\gamma_k z}
+\end{equation}
+with \( p_k(z) \in \R[z] \setminus \{0\} \) and \( \gamma_k \in \R \) distinct.
+
+\begin{lem}
+	Let \( E(z) \) be as in \eqref{eq:4.6}.
+	Then \( E(z) \) has at most
+	\[ \left( \sum_{k=1}^{r} (1+\deg p_k) \right) -1 \]
+	zeros in \( \R \).
+\end{lem}
+
+\underline{Step 3:} Let \( c=1 + \lfloor \sqrt{2d} \rfloor \).
+Using tools from complex analysis we show that \( |F(a+b\beta)| \) is very small for \( 1 \leq a,b \leq cL \).
+
+\begin{lem}\label{thm:4.40}
+	Using the same notation as above, let \( 1 \leq a,b \leq cL \).
+	Then we have the following estimates for some constants \( c_4, c_5 > 0 \):
+	\begin{enumerate}[label=(\roman*)]
+		\item \( |F(a+b\beta)| \leq e^{c_4 L^\frac{3}{2} \log L - L^2} \)
+		\item if \( \sigma: K \hookrightarrow \C \) is some embedding, then
+			\[ \left| \sigma\big( F(a+b\beta) \big) \right| \leq e^{c_5 L^\frac{3}{2} \log L} \]
+	\end{enumerate}
+\end{lem}
+
+From \Cref{thm:4.40} we deduce the following:
+Let \( 1 \leq a, b \leq cL \).
+Then there is a constant \( c_6 > 0 \) such that
+\begin{align*}
+	\left| N_{K/\Q} \left( m^{D_1 + 2cLD_2} F(a+b\beta) \right) \right| &= m^{d(D_1 + 2cLD_2)} \left| \prod_{\sigma: K \hookrightarrow \C} \sigma\big( F(a+b\beta) \big) \right|\\
+	&\leq m^{d(D_1 + 2cLD_2)} e^{c_4 L^\frac{3}{2} \log L - L^2 + (d-1)c_5 L^\frac{3}{2} \log L}\\
+	&\leq e^{c_6 L^\frac{3}{2} \log L - L^2}
+\end{align*}
+Hence, for \( L \) sufficiently large, we find
+\[ \left| N_{K/\Q} \left(\underbrace{m^{D_1 + 2cLD_2} F(a+b\beta)}_{\in \Ocal_K}\right) \right| < 1 \]
+and \( F(a+b\beta) = 0 \) for \( 1 \leq a,b \leq cL \).
+As \( 1,\beta \) are \( \Q \)-linearly independent, this implies that \( F \) has at least \( c^2L^2 > 2dL^2 = D_1D_2 \) real zeros, which is a contradiction to step 2.

@@ -1,0 +1,77 @@
+\lecture{26.01.2024}
+\section{Linear forms in logarithms}
+
+We recall
+\begin{thm}[Baker, 1975]
+	Let \( \alpha_1, \dotsc, \alpha_n \in \QQbar \setminus \{0,1\} \), \( \gamma, \beta_1, \dotsc, \beta_n \in \QQbar \) and pick a choice of logarithms \( \log\alpha_1, \dotsc, \log\alpha_n \).
+	If \( \gamma + \beta_1 \log\alpha_1 + \dots + \beta_n \log\alpha_n \neq 0 \), then
+	\[ \big| \gamma + \beta_1 \log\alpha_1 + \dots + \beta_n \log\alpha_n \big| \geq (eB)^{-C} \,, \]
+	where \( B = \max(H(\gamma), H(\beta_1), \dotsc, H(\beta_n)) \) and \( C = C(\alpha_1, \dotsc, \alpha_n) \) is an effectively computable constant.
+\end{thm}
+
+We move towards applications:
+
+\begin{cor}
+	Let \( \alpha_1, \dotsc, \alpha_n \in \QQbar \setminus \{0,1\} \), \( b_1, \dotsc, b_n \in \Z \) and assume that \( \alpha_1^{b_1} \dotsm \alpha_n^{b_n} \neq 1 \).
+	Then
+	\[ \left| \alpha_1^{b_1} \dotsm \alpha_n^{b_n} - 1 \right| \geq (eB)^{-\tilde{C}} \,, \]
+	where \( B = \max \big( |b_1|, \dotsc, |b_n| \big) \) and \( \tilde{C} > 0 \) is an effectively computable constant depending on \( n \) and \( \alpha_1, \dotsc, \alpha_n \).
+\end{cor}
+
+\begin{cor}
+	Let \( a,b \in \Z \) with \( a,b \geq 2 \).
+	Then there exists an effectively computable constant \( C_1 = C_1(a,b) > 0 \), such that for every \( m,n \in \N \) with \( a^m \neq b^n \), we have
+	\[ \left| a^m-b^n \right| \geq \frac{\max(a^m,b^n)}{(e\max(m,n))^{C_1}} \,. \]
+\end{cor}
+
+\begin{rem*}
+	\begin{enumerate}[label=\alph*)]
+		\item Let \( a,b \in \Z_{\geq 2} \) and \( k \in \Z_{\neq 0} \).
+			Then there is a constant \( C_2 > 0 \), such that all solutions \( m,n \in \N \) to the equation \( a^m - b^n = k \) satisfy
+			\[ \max(|m|,|n|) \leq C_2 \,. \] 
+		\item Using techniques from linear forms in logarithms, Tijdeman\footnote{Robert Tijdeman (*1943), a Dutch mathematician} (1976) even proved that there exists an effectively computable constant \( C_3 > 0 \), such that if \( a^m - b^n = 1 \) with \( a,b,m,n \in \Z_{\geq 2} \), then
+			\[ a^m, b^n \leq C_3 \,. \]
+			Catalan's conjecture (1844), that the equation \( a^m-b^n = 1 \) with \( a,b,m,n \in \N_{\geq 2} \) has only one solution, namely \( 3^2-2^3 = 1 \), was proven by Mihăilescu\footnote{Preda Mihăilescu (*1955), a Romanian mathematician, who currently teaches in Göttingen} in 2002.
+	\end{enumerate}
+\end{rem*}
+
+\begin{cor}
+	Let \( p_1, \dotsc, p_t \) be prime numbers and let \( (a_n)_{n \in \N} \) be the monotonically increasing sequence of natural numbers, which are composed of the primes \( p_1, \dotsc, p_t \).
+	Then there exist effectively computable constants \( C_4, C_5 \) only depending on \( t, p_1, \dotsc, p_n \), such that
+	\[ a_n - a_{n-1} \geq \frac{a_n}{C_4 (\log a_n)^{C_5}}, \quad n \in \N_{\geq 2} \,. \]
+\end{cor}
+
+\begin{exmp*}
+	For \( t=1,\ p_1 = 2 \), we obtain the sequence \( 2^n,\ n \geq 0 \), and the stronger statement
+	\[ a_n - a_{n-1} = 2^n - 2^{n-1} = \frac{1}{2} 2^n = \frac{1}{2} a_n \,. \]
+\end{exmp*}
+
+
+\subsection*{Unit equations}
+
+Let \( K \) be a number field with ring of integers \( \Ocal_K \).
+Let \( \alpha, \beta \in K^* \).
+What can we say about solutions to the equation
+\begin{equation}\label{eq:5.1}
+	\alpha x + \beta y = 1
+\end{equation}
+in \( x,y \in \Ocal_K^* \)?
+For example, are there infinitely many units \( x,y \), such that \( x = 1-y \)?
+
+\begin{thm}[Baker 1960s, Gyöny 1978] \label{thm:5.5}
+	For every number field \( K \), \eqref{eq:5.1} has at most finitely many solutions and they can be effectively determined.
+\end{thm}
+
+\begin{rem*}
+	The finiteness statement, though ineffective, has already been proved by Siegel in 1921.
+\end{rem*}
+
+We first make some preparations for the proof of \Cref{thm:5.5}:
+Let \( d = [K : \Q] \) and assume that \( K \) has \( r \) real embeddings \( \sigma_1, \dotsc, \sigma_r: K \hookrightarrow \R \) and \( \sigma_{r+1}, \dotsc, \sigma_{r+s}: K \hookrightarrow \C \) complex embeddings with \( r + 2s = d \) and \( \sigma_{r+s+1} = \overline{\sigma_{r+1}}, \dotsc, \sigma_{r+2s} = \overline{\sigma_{r+s}} \).
+Let \( u_1, \dotsc, u_{r+s-1} \) be a fundamental system of units.
+
+\begin{lem}
+	Let \( u \in \Ocal_K^* \) and write \( u = \xi u_1^{b_1} \dotsm u_{r+s-1}^{b_{r+s-1}} \) with \( \xi \in K \) a root of unity and \( b_1, \dotsc, b_{r+s-1} \in \Z \).
+	There exists an effectively computable constant \( C_6 > 0 \) depending only on \( K, u_1, \dotsc, u_{r+s-1} \), such that
+	\[ \max \big( |b_1|, \dotsc, |b_{r+s-1}| \big) \leq C_6 \log \house{u} \,. \]
+\end{lem}
