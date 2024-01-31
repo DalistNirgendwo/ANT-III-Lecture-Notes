@@ -1,0 +1,60 @@
+\lecture{30.01.2024}
+\subsection*{Thue equations}
+
+Consider a binary form \( F(X,Y) \in \Z[X,Y] \) of degree \( d \), i.e. an expression of the form \( F(X,Y) = a_0 X^d + a_1 X^{d-1}Y + \dots + a_d Y^d \) with \( a_0, \dotsc, a_d \in \Z \).
+Let \( m \in \Z \).
+
+\begin{frage*}
+	What can we say about solutions to the equation \( F(X,Y) = m \) with \( x,y \in \Z \)?
+	For \( d > 3 \) we call these Thue\footnote{after Axel Thue (1863 - 1922), a Norwegian mathematician} equations.
+\end{frage*}
+
+Our next goal will be to prove a finiteness result.
+
+\begin{thm}\label{thm:5.7}
+	Let \( F(X,Y) \in \Z[X,Y] \) be a binary form of degree \( d>3 \) with \( F(1,0) \neq 0 \) and such that \( F(X,1) \) has at least three distinct roots in \( \C \).
+	Let \( m \in \Z \setminus \{0\} \).
+	Then there are finitely many solutions \( x,y \in \Z \) to the equation \( F(X,Y) = m \).
+\end{thm}
+
+\begin{lem}
+	Let \( K \) be a number field of degree \( d \).
+	Then there exists an effectively computable constant \( C_8 > 1 \), such that for every \( \alpha \in \Ocal_K \) there exists \( u \in \Ocal_K^* \) with
+	\[ C_8^{-1} |N_{K/\Q}(\alpha)|^\frac{1}{d} \leq \house{u \alpha} \leq C_8 |N_{K/\Q}(\alpha)|^\frac{1}{d} \,. \]
+\end{lem}
+
+\begin{rem*}
+	Note that \( \left| \prod_{j=1}^{d} \sigma_j (u\alpha) \right| = |N_{K/\Q}(u\alpha)| = |N_{K/\Q}(\alpha)| \), and hence for every \( 1 \leq j \leq d \) we have \( |N_{K/\Q}(\alpha)| \leq |\sigma_j(u\alpha)| \left(C_8 |N{K/\Q}(\alpha)|^\frac{1}{d} \right)^{d-1} \), i.e.
+	\[ |\sigma_j(u\alpha)| \geq C_8^{d-1} |N_{K/\Q}(\alpha)|^\frac{1}{d} \]
+	and we find that all of the conjugates \( |\sigma_j(u\alpha)| \) are of computable size.
+\end{rem*}
+
+\begin{lem}
+	Let \( \alpha \in \Ocal_K \setminus \{0\} \).
+	Then there exist divisors \( \beta_1, \dotsc, \beta_t \) of \( \alpha \) in \( \Ocal_K \), which can be determined effectively and with the following property:
+	If \( \gamma \divides \alpha \) in \( \Ocal_K \), then there exists \( 1 \leq j \leq t \) and \( u \in \Ocal_K^* \), such that \( \gamma = u \beta_j \).
+\end{lem}
+
+An application of \Cref{thm:5.7}:
+Consider the equation 
+\begin{equation}\label{eq:5.2}
+	y^2 = 2x(x-3)
+\end{equation}
+in \( x,y \in \Z \).
+For \( x \in \Z \) we have \( \gcd(2x, x-3) \divides 6 \).
+Hence if \( (x,y) \in \Z^2 \) is a solution to \eqref{eq:5.2}, then we can write \( 2x = au^3 \), \( x-3 = bv^3 \), \( u, v \in \Z \) with \( a,b \in \set{\pm 2^k3^l}{0 \leq k,l \leq 2} \) and such that \( ab \) is a cube.
+Fix such a tuple \( (a,b) \).
+Then we find a solution \( (u,v) \) to the equation \( au^3 - 2bv^3 = 6 \), which is a Thue equation.
+Using the finiteness result for Thue equations we can show that \eqref{eq:5.2} has at most finitely many solutions.
+
+\begin{thm}[Baker, 1968]
+	Let \( f(X) \in \Z[X] \) of degree \( d \), \( b \in \Z \setminus \{0\} \) and \( n \in \N_{\geq 2} \).
+	Assume that \( f \) has no multiple zeros and \( d \geq 2 \) if \( n > 3 \) and \( d \geq 3 \) if \( n = 2 \).
+	Then the equation
+	\[ by^n = f(x) \]
+	has at most finitely many integer solutions, which can be determined effectively.
+\end{thm}
+
+\begin{rem*}
+	For \( n = 2 \) we obtain hyperelliptic equations.
+\end{rem*}
