@@ -1,0 +1,111 @@
+\lecture{02.02.2024}
+\section{Roth's theorem}
+
+\begin{defn*}[Approximation exponent] \index{Approximation exponent}
+	Let \( \alpha \in \R \).
+	We define the \emph{approximation exponent} \( \tau_\alpha \) of \( \alpha \) as the infimum of real numbers \( \tau>0 \), such that for all \( \delta > 0 \) the inequality
+	\[ |\alpha - \xi| \leq H(\xi)^{-\tau-\delta} \]
+	has only finitely many solutions \( \xi \in \Q \).
+\end{defn*}
+
+\begin{rem*}
+	\begin{enumerate}[label=\alph*)]
+		\item For \( \xi = \frac{p}{q} \in \Q \) with \( p,q \in \Z \), \( q \neq 0 \), and \( \gcd(p,q) = 1 \), we have
+			\[ H(\xi) = \max(|p|, |q|) \,. \]
+		\item For \( \alpha \in \Q \) we have \( \tau_\alpha = 1 \).
+		\item If \( \alpha \in \R\setminus \Q \), then by Dirichlet's theorem we have \( \tau_\alpha \geq 2 \).
+	\end{enumerate}
+\end{rem*}
+
+\begin{thm*}[Roth, 1955] \index[theorem]{Roth's theorem}
+	Let \( \alpha \in \R \cap \QQbar \) and \( \kappa > 2 \).
+	Then there exists a constant \( c(\alpha, \kappa) > 0 \), such that
+	\[ |\xi - \alpha| \geq c(\alpha, \kappa) H(\xi)^{-\kappa} \]
+	for all \( \xi \in \Q \), \( \xi \neq \alpha \).
+\end{thm*}
+
+\begin{rem*}
+	\begin{enumerate}[label=\alph*)]
+		\item For all \( \alpha \in \R \cap \QQbar \) with \( \alpha \not\in \Q \), we deduce that the approximation exponent \( \tau_\alpha = 2 \).
+		\item The constant \( c(\alpha, \kappa) \) in Roth's theorem is ineffective, i.e. with the methods of the proof one cannot compute \( c(\alpha, \kappa) \) explicitly.
+	\end{enumerate}
+\end{rem*}
+
+We will prove a weaker result:
+
+\begin{thm}[Liouville, 1844]
+	Let \( \alpha \in \R \cap \QQbar \) of degree \( d \geq 1 \).
+	Then there exits an effectively computable constant \( c(\alpha) > 0 \), such that
+	\[ |\xi - \alpha| \geq c(\alpha) H(\xi)^{-d} \]
+	for all \( \xi \in \Q \), \( \xi \neq \alpha \).
+\end{thm}
+
+\begin{rem*}
+	If \( f(X) = a_0 X^d + \dots + a_d \in \Z[X] \) is a primitive polynomial of \( \alpha \), then we define the \emph{Mahler measure} of \( \alpha \) as
+	\[ M(\alpha) = |a_0| \prod_{j=1}^d \max (1, |a^{(j)}|) \]
+	and Liouville's theorem can be formulated as
+	\[ |\alpha - \xi| \geq 2^{1-d} M(\alpha) H(\xi)^{-d} \]
+	for all \( \xi \in \Q \), \( \xi \neq \alpha \).
+\end{rem*}
+
+\begin{conj*}[Lehmer, 1930s]
+	There is a constant \( c>0 \), such that for all \( \alpha \in \QQbar \setminus \{0\} \), which is not a root of unity, one has
+	\[ M(\alpha) \geq 1 + c \,. \]
+\end{conj*}
+
+
+\subsection*{Roth's theorem and Thue equations}
+
+\begin{defn*}[Square-free binary form]
+	We call a binary form \( F(X,Y) \in \Z[X,Y] \) \emph{binary-free} if it is not divisible by a square \( (\alpha X + \beta Y)^2 \in \C[X,Y] \), \( \alpha, \beta \in \C \) not both zero.
+\end{defn*}
+
+\begin{thm}
+	Let \( F(X,Y) \in \Z[X,Y] \) be a square-free form of degree \( d \geq 3 \) and \( \kappa > 2 \).
+	Then there exists a constant \( c(F,\kappa) > 0 \), such that for every \( (p,q) \in \Z^2 \) with \( F(p,q) \neq 0 \), we have
+	\[ |F(p,q)| \geq c(F, \kappa) \max(|p|, |q|)^{d-\kappa} \,. \]
+\end{thm}
+
+\begin{cor}
+	Let \( F(X,Y) \in \Z[X,Y] \) be a binary form, such that \( F(X,1) \) has at least three distinct roots, and \( m \in \Z \setminus \{0\} \).
+	Then the equation \( F(X,Y) = m \) has at most finitely many integer solutions.
+\end{cor}
+
+
+\section{Schmidt's subspace theorem}
+
+\begin{thm}[Schmidt, 1972]\label{thm:5.13} \index[theorem]{Subspace theorem}
+	Let \( L_i(X_1, \dotsc, X_n) = a_{i1} X_1 + \dots + a_{in} X_n \), \( 1 \leq i \leq n \), be \( n \) linearly independent integer forms with \( a_{ij} \in \QQbar \), \( 1 \leq i, j \leq n \), \( n \geq 2 \).
+	Let \( \delta, C > 0 \).
+	Then all integer solutions \( x \in \Z^n \) to the inequality
+	\[ |L_1(X) \dotsm L_n(X)| \leq C \|X\|_\infty^{-\delta} \]
+	are contained in a finite union of proper linear subspaces of \( \Q^n \).
+\end{thm}
+
+%\begin{rem*}
+%	\Cref{thm:5.13} implies Roth's theorem as follows:
+%	Let \( \alpha \in \QQbar \setminus \Q \).
+%	Define the two linear forms \( L_1(X_1, X_2) = X_1 - \alpha X_2 \) and \( L_2(X_1, X_2) = X_2 \).
+%	Assume that \( p,q \in \Z \) with \( q \neq 0 \), \( \gcd(p,q)=1 \) and such that
+%	\[ \left| \frac{p}{q} - \alpha \right| < C_1 \max (|p|, |q|)^{-2-\delta} \]
+%	for some constant \( C_1 > 0 \), \( \delta > 0 \).
+%	We find that
+%\end{rem*}
+
+\begin{frage*}
+	Under which conditions does the inequality
+	\begin{equation}\label{eq:5.3}
+		|L_1(X) \dotsm L_n(X)| \leq C \|X\|_\infty^{-\delta}
+	\end{equation}
+	in Schmidt's subspace theorem have only \emph{finitely many} solutions?
+\end{frage*}
+
+\begin{exmp*}
+	Let \( L_1(X) = a_{11} X_1 + \dots a_{1n} X_n \) with \( a_{11}, \dotsc, a_{1n} \in \Z \) and \( X^{(0)} = (X_1^{(0)}, \dotsc, X_n^{(0)}) \in \Z^n \setminus \{0\} \) a solution to \( L_1(X^{(0)}) = 0 \).
+	Then \eqref{eq:5.3} has infinitely many solutions given for example by \( \lambda X^{(0)} \), \( \lambda \in \Z \).
+\end{exmp*}
+
+\begin{frage*}
+	How about restricting to the inequality
+	\[ 0 < |L_1(X) \dotsm L_n(X)| \leq C \|X\|_\infty^{-\delta} \,? \]
+\end{frage*}
