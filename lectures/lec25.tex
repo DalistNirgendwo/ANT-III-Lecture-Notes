@@ -1,0 +1,121 @@
+\lecture{06.02.2024}
+\begin{exmp*}
+	Let \( n = 3 \) and consider \( L_1(X) = X_1 + \sqrt{2}X_2 + \sqrt{3}X_3 \), \( L_2 = X_1 - \sqrt{2}X_2 + \sqrt{3}X_3 \), \( L_3(X) = X_1 - \sqrt{2}X_2 - \sqrt{3}X_3 \).
+	By Dirichlet's theorem (\ref{thm:dirichlet_solutions}), there are in fact infinitely many solutions \( (p,q) \in \Z^2 \), \( q \neq 0 \), to
+	\[ \left| \sqrt{2} - \frac{p}{q} \right| \leq \frac{1}{q^2} \,. \]
+	Note that for each solution \( \max(|p|, |q|) \leq (1 + \sqrt{2})q \) and
+	\[ \big| L_1(p,q,0) L_2(p,q,0) L_3(p,q,0) \big| \leq (1+\sqrt{2})^2 |q| |q|^{-2} \leq (1+\sqrt{2})^3 \max(|p|, |q|)^{-1} \,. \]
+	I.e. for \( C = (1 + \sqrt{2})^3 \), \( \delta = 1 \), we obtain infinitely many solutions in the subspace \( x_3 = 0 \).
+\end{exmp*}
+
+\begin{lem}
+	Let \( L_i(X) = a_{i1}X_1 + a_{i2}X_2 \), \( i = 1,2 \), be two linearly independent forms with \( a_{ij} \in \QQbar \), \( 1 \leq i,j \leq 2 \), and \( C,\delta > 0 \).
+	Then
+	\[ 0 < \big| L_1(x) L_2(x) \big| \leq C \|x\|_\infty^{-\delta} \]
+	has only \emph{finitely many} integer solutions.
+\end{lem}
+
+\begin{thm}
+	Let \( L_i(X) = a_{i1}X_1 + \dots + a_{in}X_n \), \( 1 \leq i \leq r \), be linear forms with coefficients in \( \QQbar \) and \( r \geq n \geq 2 \).
+	Assume that each \( n \)-tuple among \( L_1, \dotsc, L_r \) are linearly independent and let \( C, \delta > 0 \).
+	Then all integer solutions to the inequality 
+	\[ \big| L_1(x) \dotsm L_r(x) \big| \leq C \|x\|_\infty^{r-n-\delta} \]
+	are contained in a finite union of proper linear subspaces of \( \Q^n \).
+\end{thm}
+
+\subsection*{Applications to Diophantine approximations}
+
+\begin{lem}
+	Let \( \alpha_1, \dotsc, \alpha_n \in \R \) be linearly independent over \( \Q \).
+	Then there exists a constant \( C > 0 \), such that the following inequality
+	\[ \big| \alpha_1 x_1 + \dots + \alpha_n x_n \big| \leq C \|x\|_\infty^{1-n} \]
+	has infinitely many solutions \( x \in \Z^n \).
+\end{lem}
+
+\begin{thm}
+	Let \( \alpha_1, \dotsc, \alpha_n \in \QQbar \) and \( C,\delta > 0 \).
+	Then there are at most finitely many integer solutions to the inequality
+	\[ 0 < \big| \alpha_1 x_1 + \dots + \alpha_n x_n \big| \leq C \|x\|_\infty^{1-n-\delta} \]
+\end{thm}
+
+\begin{rem*}
+	For \( n \leq 2 \) we get Roth's theorem.
+\end{rem*}
+
+\begin{frage*}
+	How well can we approximate \( \alpha \in \QQbar \) by algebraic numbers \( \xi \) of bounded degree?
+\end{frage*}
+
+\begin{thm}
+	Let \( \alpha \in \QQbar \), \( d \in \N \) and \( C,\delta > 0 \).
+	Then the inequality
+	\[ \big| \alpha - \xi \big| \leq CH(\xi)^{-d-1-\delta} \]
+	has at most finitely many solutions \( \xi \in \QQbar \) with \( \deg \xi \leq d \).
+\end{thm}
+
+\begin{conj*}[Wirsing\protect\footnote{Eduard Wirsing (1931-2022), a German mathematician}, 1960]
+	Let \( d \in \N \) and \( \alpha \in \R \), such that \( \alpha \) is not an algebraic number of degree \( \leq d \).
+	Then there is a constant \( C(\alpha) > 0 \) and there are infinitely many integer numbers \( \xi \) of degree at most \( d \) with
+	\[ \big| \alpha - \xi \big| \leq C(\alpha) H(\xi)^{-d-1} \,. \]
+\end{conj*}
+
+\begin{conj*}[Wirsing, 1961]
+	The same statement is true for the inequality
+	\[ \big| \alpha - \xi \big| \leq C(\alpha) H(\xi)^{-\frac{d + \xi}{2} + \epsilon} \,. \]
+\end{conj*}
+
+
+\subsection*{Applications to norm form equations}
+
+Let \( \alpha \in \QQbar \) of degree \( d \) and with monic polynomial \( f(X) \in \Q[X] \).
+If we write \( \alpha^{(1)}, \dotsc, \alpha^{(d)} \) for the conjugates of \( \alpha \), then \( f(X) = \prod_{j=1}^{d} (X-\alpha^{(j)}) \) and the homogenisation
+\[ F(X, Y) = Y^d f\left( \frac{X}{Y} \right) = \prod_{j=1}^{d} \big(X - \alpha^{(j)}Y \big) \]
+is an irreducible binary form in \( \Q[X,Y] \).
+
+\begin{defn*}[Norm form in two variables]\index{Norm form!in two variables}
+	Let \( K = \Q(\alpha) \) and extend the definition of the norm map \( N_{K/\Q} \) to \( K[X,Y] \).
+	Then we can write
+	\[ F(X,Y) = \prod_{\sigma_j: K \hookrightarrow \C} \big(X - \sigma_j(\alpha) Y \big) = N_{K/\Q} (X - \alpha Y) \,. \]
+	We call \( F(X,Y) \) a \emph{norm form in two variables}.
+\end{defn*}
+
+
+\begin{exmp*}
+	\begin{itemize}
+		\item if \( [K:\Q] \geq 3 \), \( m \in \Z_{\neq 0} \) and \( \alpha \) and algebraic integer, then the norm form equation \( F(X,Y) = m \) is a Thue equation.
+		\item if \( d \in \N \), \( d \) not a square and \( \alpha = \sqrt{d} \), \( K = \Q(\sqrt{d}) \), then the norm form equation
+			\[ N_{K/\Q} \big(x-\sqrt{d}y\big) = x^2 - dy^2 = 1 \]
+			is a Pell equation.
+	\end{itemize}
+\end{exmp*}
+
+\subsection*{Norm form equations in more variables}
+
+\begin{defn*}[Norm form]\index{Norm form}
+	Let \( K \) be a number field of degree \( d \geq 2 \), \( n \in \N \) with \( 2 \leq n \leq d \), and \( \alpha_1, \dotsc, \alpha_n \in K \).
+	Let \( \sigma_1, \dotsc, \sigma_d: K \hookrightarrow \C \) be the d distinct embeddings of \( K \).
+	We call the polynomial
+	\[ F(X_1, \dotsc, X_n) = N_{K/\Q} \big( \alpha_1 X_1 + \dots + \alpha_n X_n \big) = \prod_{j=1}^{d} \big( \sigma_j(\alpha_1) X_1 + \dots + \sigma_j(\alpha_n) X_n \big) \]
+	a \emph{(partial) norm form}.
+\end{defn*}
+
+\textbf{Claim:} \( F(X_1, \dotsc, X_n) \in \Q[X_1, \dotsc, X_n] \).
+Let \( L \) be a normal closure of \( K \) and \( G = \Gal(L / \Q) \).
+Then every \( \tau \in G \) permutes the linear factors \( \sigma_j(\alpha_1) X_1 + \dots + \sigma_j(\alpha_n) X_n \) and hence
+\[ \tau\big(F(X_1, \dotsc, X_n)\big) = F(X_1, \dotsc, X_n) \quad \foralll \tau \in G \,. \]
+
+\begin{defn*}[Norm form equation] \index{Norm form equation}
+	If \( m \in \Q \setminus \{0\} \), then we call the equation
+	\begin{equation}\label{eq:5.4}
+		N_{K/\Q} \big(\alpha_1 X_1 + \dots + \alpha_n X_n\big) = m \,,
+	\end{equation}
+	\( X_1, \dotsc, X_n \in \Z \), a \emph{norm form equation}.
+\end{defn*}
+
+\begin{thm}[Schmidt, 1970s] \label{thm:5.19}
+	Let \( K \) be a number field of degree \( d \), \( L \) a normal closure of \( K \) and \( m \in \Q \setminus \{0\} \).
+	Assume that \( 2 \leq n \leq d \), let \( \alpha_1, \dotsc, \alpha_n \in K \) be \( \Q \)-linearly independent and assume that \( \Gal(L/\Q) \cong S_d \)\footnote{Here \( S_d \) denotes the symmetric group in \( d \) elements.}.
+	Then the norm form equation 
+	\[ N_{K/\Q} \big(\alpha_1 X_1 + \dots + \alpha_n X_n\big) = m \]
+	has at most finitely many integer solutions.
+\end{thm}

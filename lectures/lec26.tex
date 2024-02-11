@@ -1,0 +1,73 @@
+\lecture{09.02.2024}
+
+\textbf{Recall:} Let \( H \) be a group, \( K \) a field and \( \chi_1, \dotsc, \chi_M: H \to K^* \) be distinct characters.
+Then \( \chi_1, \dotsc, \chi_m \) are linearly independent in the \( K \)-vector space of all maps \( H \to K \).
+
+\begin{cor*}
+	Let \( K \) be a number field of degree \( d \) and let \( \alpha_1, \dotsc, \alpha_d \in K \) be \( \Q \)-linearly independent.
+	Let \( \sigma_1, \dotsc, \sigma_d: K \hookrightarrow \C \) be the \( d \) distinct embeddings.
+	Then the matrix \( \big( \sigma_i (\alpha_j) \big)_{1 \leq i,j \leq d} \) has rank \( d \).
+\end{cor*}
+
+\begin{lem}
+	Let the notation be as above and assumptions as in \Cref{thm:5.19}.
+	Then the linear forms
+	\[ L_j(X) = \sigma_j(\alpha_1)X_1 + \dots + \sigma_j(\alpha_n)X_n, \quad 1 \leq j \leq d \]
+	are in general position, i.e. any subset of \( n \) forms is linearly independent.
+\end{lem}
+
+\begin{exmp*}
+	If \( K \) has \( r \) real and \( 2s \) complex embeddings with \( r+s-1>0 \) and \( \alpha_1, \dotsc, \alpha_d \) is a basis for \( \Ocal_K \), then \( N_{K/\Q}(\alpha_1 x_1 + \dots + \alpha_n x_n) = 1 \) has infinitely many integer solutions.
+	(For \( u \in \Ocal_K^* \) we have \( N_{K/\Q}(u^2)=1 \).)
+	More generally, for \( \alpha_1, \dotsc, \alpha_n \in K \), linearly independent over \( \Q \), write
+	\[ M = \set{\sum_{i=1}^{n} \alpha_i y_i}{y_i \in \Z \ \foralll i} \,. \]
+	If there is a subfield \( \Q \subseteq L \subseteq K \), which is neither \( \Q \) nor an imaginary quadratic field and such that \( \mu \Ocal_L \subseteq M \) for some \( \mu \in \K^* \), then the nrom form equation with \( m = N_{K/\Q}(\mu) \) has infinitely many solutions.
+	(as \( N_{K/\Q}(u^2 \mu) = m \ \foralll u \in \Ocal_L^* \))
+\end{exmp*}
+
+\begin{thm*}[Schmidt, 1972]
+	Let \( K \) be a number field, \( \alpha_1, \dotsc, \alpha_n \in K \) \( \Q \)-linearly independent, and write \( M = \set{\sum_{i=1}^{n} \alpha_i y_i}{y_i \in \Z \ \foralll i} \).
+	Then the following are equivalent:
+	\begin{enumerate}[label=(\roman*)]
+		\item there does not exist \( \mu \in K^* \) and a subfield \( \Q \subset L \subset K \) with \( L \neq \Q \) and not imaginary quadratic, such that
+			\[ \mu \Ocal_L \subseteq M \]
+		\item for every \( m \in \Q^* \), the equation
+			\[ N_{K/\Q}(\alpha_1 x_1 + \dots + \alpha_n x_n) = m \]
+			has at most finitely many solutions.
+	\end{enumerate}
+\end{thm*}
+
+\begin{exmp*}
+	Let \( K = \Q(\sqrt[6]{2}) \), \( L = \Q[3]{2} \), \( \alpha_1 = \sqrt[6]{2} \), \( \alpha_2 = \sqrt{2} \), \( \alpha_3 = (\sqrt[6]{2})^5 \).
+	One can show that \( 1, \sqrt[3]{2}, \sqrt[3]{4} \) is an integral basis for \( \Ocal_L \) and \( \Ocal_L^* = \set{\pm (1-\sqrt[3]{2})^n}{n \in \Z} \).
+	Then \( N_{K/\Q}(x_1 \alpha_1 + x_2 \alpha_2 + x_3 \alpha_3) = N_{K/\Q} (\sqrt[6]{2}) = 2 \) has infinitely many integer solutions.
+\end{exmp*}
+
+\subsection*{More examples of "norm form equations"}
+
+Let \( K \) be a number field of degree \( d \) with a basis \( \alpha_1, \dotsc, \alpha_d \) for the ring of integers \( \Ocal_K \).
+Let \( c_j \in \Z\setminus \{0\} \), \( 1 \leq j \leq 3 \), and consider the equation
+\[ c_1 N_{K/\Q} (\alpha_1 x_1 + \dots + \alpha_d x_d) + c_2 N_{K/\Q} (\alpha_1 x_1 + \dots + \alpha_d x_d) = c_3 \]
+with \( x,y \in \Q^d \).
+
+\begin{thm*}[Birch\protect\footnote{Bryan John Birch (*1931), a British mathematician}, Davenport\protect\footnote{Harold Davenport (1907-1969), an English mathematician}, Lewis\protect\footnote{Donald John Lewis (1926-2015), an American mathematician}, 1962]
+	If the homogenised equation
+	\begin{equation}\label{eq:5.5}
+		c_1 N_{K/\Q} (\alpha_1 x_1 + \dots + \alpha_d x_d) + c_2 N_{K/\Q} (\alpha_1 x_1 + \dots + \alpha_d x_d) = c_3z^d
+	\end{equation}
+	has non-trivial solutions over \( \R \) and modulo all prime powers \( p^l \), then
+	\[ c_1 N_{K/\Q} (\alpha_1 x_1 + \dots + \alpha_d x_d) + c_2 N_{K/\Q} (\alpha_1 x_1 + \dots + \alpha_d x_d) = c_3 \]
+	has a solution in \( x,y \in \Q^d \).
+	Moreover, in that case one can show that \eqref{eq:5.5} has infinitely many integer solutions \( x,y \in \Z^d \), \( z \in \Z \), and count them asymptotically in the box
+	\[ N(B) = \# \set{x,y \in \Z^d}{z \in Z,\ \eqref{eq:5.5}\ \text{holds},\ \|x\|_\infty, \|y\|_\infty, |z| \leq B} \,. \]
+\end{thm*}
+
+The Hardy-Littlewood circle method works similarly asymptotic for \( N(B) \) as \( B \to \infty \) of the shape \( N(B) \sim cB^{d+1} \).
+
+
+\subsection*{Linear equations in norm forms}
+Notation as above.
+For \( x \in \Z^d \) or \( x \in \Q^d \), write \( N(x) = N_{K/\Q}(\alpha_1 x_1 + \dots + \alpha_n x_n) \).
+Imagine we want to solve a system of linear equations
+\[ a_{i1} N(x_1) + \dots + a_{in} N(x_n) = 0, \quad 1 \leq i \leq m, \]
+in \( x_1, \dotsc, x_n \in \Z^d \) or \( \Q^d \).
