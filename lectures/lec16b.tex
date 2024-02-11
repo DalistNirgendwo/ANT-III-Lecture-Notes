@@ -13,11 +13,11 @@ Given \( \epsilon>0 \), what is the "smallest" fraction \( \frac{x}{y} \) (i.e. 
 	Then there exist infinitely many pairs \( (x,y) \in \Z^2 \), such that \( y > 0 \), \( \gcd(x,y)=1 \) and \( \left| \alpha - \frac{x}{y} \right| \leq \frac{1}{y^2} \).
 \end{cor}
 
-\begin{thmn}[Dirichlet, 1842]
+\begin{thmn}[Dirichlet, 1842] \label{thm:dirichlet_solutions}
 	\begin{enumerate}[label=(\alph*)]
 		\item[]
 		\item Let \( \alpha_1, \dotsc, \alpha_n \in \R \) for some \( n \in \N \).
-			For all \( Q \in \N \) there exists a tuple \( x_1, \dotsc, x_n, y) \in \Z^{n+1} \) with \( 0 \leq y \leq Q^n \), such that
+			For all \( Q \in \N \) there exists a tuple \( (x_1, \dotsc, x_n, y) \in \Z^{n+1} \) with \( 0 \leq y \leq Q^n \), such that
 			\[ \left| \alpha_i y - x_i \right| \leq \frac{1}{Q} \quad \foralll 1 \leq i \leq n \,. \]
 		\item Let \( \alpha_1, \dotsc, \alpha_n \in \R \), not all in \( \Q \).
 			Then there exist inifinitely many tuples \( (x_1, \dotsc, x_n, y) \in \Z^{n+1} \) with \( \gcd(x_1, \dotsc, x_n, y) = 1 \), \( y>0 \), such that
