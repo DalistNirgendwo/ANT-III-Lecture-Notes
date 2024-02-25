@@ -33,7 +33,7 @@ What is known towards Schanuel's conjecture?
 \begin{thmn}
 	Let \( \alpha, \beta \in \QQbar \cap \R \) with \( \alpha > 0 \), \( \alpha \neq 1 \) and \( \beta \not\in \Q \).
 	Let \( \log\alpha \) be the real logarithm of \( \alpha \).
-	Then \( \alpha^\beta 0 e^{\beta \log\alpha} \) is transcendental.
+	Then \( \alpha^\beta = e^{\beta \log\alpha} \) is transcendental.
 \end{thmn}
 
 
@@ -44,10 +44,10 @@ Consider \( m \) linear equations in \( n \) variables, say
 	\begin{array}{c}
 		a_{11} x_1 + \dots + a_{1n}x_n = 0\\
 		\vdots \\
-		a_{n1}x_1 + \dots + a_{nn}x_n = 0
+		a_{m1}x_1 + \dots + a_{mn}x_n = 0
 	\end{array}
 \end{equation}
-Assume \( m \in n \) and \( a_{ij} \in \Z \) for \( 1 \leq i,j \leq n \).
+Assume \( m < n \) and \( a_{ij} \in \Z \) for \( 1 \leq i,j \leq n \).
 Then there exists a solution \( x \in \Q^n \setminus \{0\} \) and hence also a solution \( x \in \Z^n \setminus \{0\} \).
 What can we say about the size of a "smallest" solution?
 
@@ -69,11 +69,13 @@ What can we say about the size of a "smallest" solution?
 \begin{thm}[Siegel's\protect\footnote{after Carl Ludwig Siegel (1896-1981), a German mathematician} lemma]\label{thm:4.34} \index[theorem]{Siegel's lemma}
 	Let \( n > m > 0 \), \( A \geq 1 \) and \( a_{ij} \in \Z \) for \( 1 \leq i \leq m,\ 1 \leq j \leq n \), such that \( |a_{ij}| \leq A \ \foralll i,j \).
 	Then there exists a solution \( x \in \Z^n \setminus \{0\} \) to the system \eqref{eq:4.4}, such that
-	\[ \max_{1 \leq i \leq n} |x_i| \leq (nA)^\frac{m}{n-m} \]
+	\[ \max_{1 \leq i \leq n} |x_i| \leq (nA)^\frac{m}{n-m} \,. \]
 \end{thm}
 
 An alternate point of view: Consider \( m=1 \).
-Let \( a_1, \dotsc, a_n \in \Z \) with \( \gcd(a_1, \dotsc, a_n) = 1 \) and define the hyperplane \( H = \set{x \in \R^n}{\sum_{i=1}^{n} a_ix_i = 0} \) and the lattice \( \Lambda = \set{x \in \Z^n}{\sum_{i=1}^{n} a_ix_i = 0} \).
+Let \( a_1, \dotsc, a_n \in \Z \) with \( \gcd(a_1, \dotsc, a_n) = 1 \) and define
+\[ H = \set{x \in \R^n}{\sum_{i=1}^{n} a_ix_i = 0} \,, \]
+\[ \Lambda = \set{x \in \Z^n}{\sum_{i=1}^{n} a_ix_i = 0} \,. \]
 Then \( \Lambda \subset H \) is a lattice of rank \( n-1 \).
 
 \begin{lem}
@@ -81,7 +83,7 @@ Then \( \Lambda \subset H \) is a lattice of rank \( n-1 \).
 	Then \( d(\Lambda) = \|a\|_2 \).
 \end{lem}
 
-If \( \lambda_1, \dotsc, \lambda_n \) are successive minima of \( \Lambda \) with respect to \( \|\cdot\|_\infty \), then by Minkowski's second convex body theorem, \( \lambda_1 \dotsm \lambda_{n-1} \ll  d(\Lambda) = \|a\|_2 \), i.e. \( \lambda_1^{n-1} \leq \|a\|_2, \lambda_1 \ll \|a\|_2^\frac{1}{n-1} \).
+If \( \lambda_1, \dotsc, \lambda_{n-1} \) are successive minima of \( \Lambda \) with respect to \( \|\cdot\|_\infty \), then by Minkowski's second convex body theorem, \( \lambda_1 \dotsm \lambda_{n-1} \ll  d(\Lambda) = \|a\|_2 \), i.e. \( \lambda_1^{n-1} \ll \|a\|_2\) and \( \lambda_1 \ll \|a\|_2^\frac{1}{n-1} \), which up to the constant recovers Siegel's lemma.
 
 Next, we want to solve \eqref{eq:4.4} in \( x \in \Z^n \), where the coefficients \( a_{ij} \) are elements in some number field.
 
@@ -106,7 +108,7 @@ Next, we want to solve \eqref{eq:4.4} in \( x \in \Z^n \), where the coefficient
 	Our first idea would be to write \( a_{ij} = b_{ij} + c_{ij} \omega_d \).
 	Then rewrite \eqref{eq:4.5} as
 	\begin{align*}
-		(b_{11} + c_{ii}\omega_d) x_1 + \dots &+ (b_{1n} + c_{1n}\omega_d) x_n = 0\\
+		(b_{11} + c_{11}\omega_d) x_1 + \dots &+ (b_{1n} + c_{1n}\omega_d) x_n = 0\\
 		&\vdots \\
 		(b_{m1} + c_{m1}\omega_d) x_1 + \dots &+ (b_{mn} + c_{mn}\omega_d) x_n = 0
 	\end{align*}
@@ -121,7 +123,7 @@ Next, we want to solve \eqref{eq:4.4} in \( x \in \Z^n \), where the coefficient
 	\end{align*}
 	If \( n > 2m \), then this is a system as in \Cref{thm:4.34} and it has a non-zero solution \( x \in \Z^n \) with
 	\[ \max_{1 \leq i \leq n} |x_i| \leq (nA)^\frac{2m}{n-2m} \,, \]
-	where \( A = \max{i,j} \big\{ |b_{ij}|, |c_{ij|} \big\} \).
+	where \( A = \max_{i,j} \big\{ |b_{ij}|, |c_{ij}| \big\} \).
 \end{exmp*}
 
 \begin{rem*}

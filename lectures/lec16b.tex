@@ -18,7 +18,7 @@ Given \( \epsilon>0 \), what is the "smallest" fraction \( \frac{x}{y} \) (i.e. 
 		\item[]
 		\item Let \( \alpha_1, \dotsc, \alpha_n \in \R \) for some \( n \in \N \).
 			For all \( Q \in \N \) there exists a tuple \( (x_1, \dotsc, x_n, y) \in \Z^{n+1} \) with \( 0 \leq y \leq Q^n \), such that
-			\[ \left| \alpha_i y - x_i \right| \leq \frac{1}{Q} \quad \foralll 1 \leq i \leq n \,. \]
+			\[ \left| \alpha_i - \frac{x_i}{y} \right| \leq \frac{1}{yQ} \quad \foralll 1 \leq i \leq n \,. \]
 		\item Let \( \alpha_1, \dotsc, \alpha_n \in \R \), not all in \( \Q \).
 			Then there exist inifinitely many tuples \( (x_1, \dotsc, x_n, y) \in \Z^{n+1} \) with \( \gcd(x_1, \dotsc, x_n, y) = 1 \), \( y>0 \), such that
 			\[ \left| \alpha_i - \frac{x_i}{y} \right| \leq \frac{1}{y^{1 + \frac{1}{n}}} \quad \foralll 1 \leq i \leq n \,. \]
@@ -29,7 +29,7 @@ Another application of Minkowski's convex body theorem: Rational points close to
 
 \begin{thmn}
 	Let \( \alpha_1, \dotsc, \alpha_n \in \R \), such that \( 1, \alpha_1, \dotsc, \alpha_n \) are linearly independent over \( \Q \).
-	Then there exist infinitely many tuples \( (x, y_1, \dotsc, y_n) \in \Z^{n+1} \) with \( y_1, \dotsc, y_n) \neq (0, \dotsc, 0) \) and
+	Then there exist infinitely many tuples \( (x, y_1, \dotsc, y_n) \in \Z^{n+1} \) with \( (y_1, \dotsc, y_n) \neq (0, \dotsc, 0) \) and
 	\[ \big| \alpha_1 y_1 + \dots + \alpha_n y_n - x \big| \leq \left( \max_{1 \leq i \leq n} |y_i| \right)^{-n} \,. \]
 \end{thmn}
 

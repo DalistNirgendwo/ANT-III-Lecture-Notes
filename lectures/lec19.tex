@@ -75,7 +75,7 @@ As a corollary: if \( \beta \in \QQbar \setminus \{0\} \), then \( e^\beta \) is
 	Baker's theorem gives us the stronger conclusion that \( 1, \log\alpha_1, \dotsc, \log\alpha_n \) are linearly independent over \( \QQbar \).
 \end{rem*}
 
-\begin{defn*}
+\begin{defn*}[Height]\index{Height}
 	Let \( \alpha \in \QQbar \) with primitive minimal polynomial \( f \in \Z[X] \), i.e. a minimal polynomial \( f(X) = a_0 + a_1X + \dots + a_dX^d \) with \( a_0, \dotsc, a_d \) and \( \gcd(a_0, \dotsc, a_d) = 1 \).
 	Then we set \( H(\alpha) = \max_{0 \leq i \leq d} |a_i| \).
 \end{defn*}
@@ -84,23 +84,23 @@ As a corollary: if \( \beta \in \QQbar \setminus \{0\} \), then \( e^\beta \) is
 	Let \( \alpha_1, \dotsc, \alpha_n \in \QQbar \setminus \{0,1\} \), \( \gamma \in \QQbar \) and \( \beta_1, \dotsc, \beta_n \in \QQbar \setminus \{0\} \).
 	Pick choices of \( \log\alpha_1, \dotsc, \log\alpha_n \) and assume that \( \log\alpha_1, \dotsc, \log\alpha_n \) are linearly independent over \( \Q \).
 	Then 
-	\[ \left| \gamma + \beta_1 \log\alpha_1 + \dots + \beta_n \log\alpha_n \right| \geq (eB)^-c \]
-	with \( B = \max \big( H(\gamma), H(\beta_1), \dotsc, H(\beta_n) \big) \) and \( c>0 \) an effectively computable constant depending on \( n, H(\alpha_1), \dotsc, H(\alpha_n) \) and the choices for \( \log\alpha_1, \dotsc, \log\alpha_n \).
+	\[ \left| \gamma + \beta_1 \log\alpha_1 + \dots + \beta_n \log\alpha_n \right| \geq (eB)^{-c} \]
+	with \( B = \max \big( H(\gamma), H(\beta_1), \dotsc, H(\beta_n) \big) \) and \( c>0 \) an effectively computable constant depending on \( n, H(\alpha_1), \dotsc, H(\alpha_n) \) and the choices of \( \log\alpha_1, \dotsc, \log\alpha_n \).
 \end{thmn}
 
 \begin{frage*}
-	How can we recognise if \( \log\alpha_1, \dotsc, \log\alpha_n \) are \( \Q \)-linearly independent.
+	How can we recognise if \( \log\alpha_1, \dotsc, \log\alpha_n \) are \( \Q \)-linearly independent?
 \end{frage*}
 
 Assume that \( \log\alpha_1, \dotsc, \log\alpha_n \) are \( \Q \)-linearly dependent.
 Then there exist \( b_1, \dotsc, b_n \in \Z \), not all zero, such that
 \[ b_1 \log\alpha_1 + \dots + b_n \log\alpha_n = 0 \,, \]
 i.e.
-\[ \alpha_1^{b_1} \alpha_2^{b_2} \dotsm \alpha_n^{b_n} = 0 \,. \]
+\[ \alpha_1^{b_1} \alpha_2^{b_2} \dotsm \alpha_n^{b_n} = 1 \,. \]
 
 \begin{defn*}[Multiplicative dependency]
 	We say that \( \alpha_1, \dotsc, \alpha_n \in \C \) are \emph{multiplicatively dependent} if there exist \( b_1, \dotsc, b_n \in \Z \), not all zero, such that
-	\[ \alpha_1^{b_1} \alpha_2^{b_2} \dotsm \alpha_n^{b_n} = 0 \,. \]
+	\[ \alpha_1^{b_1} \alpha_2^{b_2} \dotsm \alpha_n^{b_n} = 1 \,. \]
 \end{defn*}
 
 \begin{rem*}
